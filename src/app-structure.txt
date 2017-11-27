@@ -1,0 +1,85 @@
+Components
+
+- App
+    - Home
+    - Signup
+        - SignupForm 
+        - SignupSuccess**
+    - LoginForm
+    - Logout
+    - Dashboard
+        - NavBar
+        - Circle
+        - SubTable
+    - SubInfo
+    - SubAdd
+    - SubEdit
+    - Summary
+—————————————————
+/
+- App
+    - Home
+
+/signup
+- App
+    - SignupForm
+    - SignupSuccess** (initially hidden)
+
+/login
+- App
+    - LoginForm
+
+/dashboard
+- App
+    - Dashboard
+        - Logout
+        - NavBar
+        - Circle (x3)
+        - add subscription button
+        - SubTable
+
+/subscription/show/:sub
+- App
+    - SubInfo
+        - Logout
+        - NavBar
+        - contents
+
+/subscription/add
+- App
+    - SubAdd
+        - NavBar
+        - contents
+
+/subscription/edit/:sub
+- App
+    - SubEdit
+        - Logout
+        - NavBar
+        - contents
+
+/summary
+- App
+    - Summary
+        - Logout
+        - NavBar
+        - contents
+
+-------------------------------------------------------
+
+state = {
+    login: null,
+    aboutModal: false,
+    subscriptions: {
+        {
+            name: 'Spotify Premium',
+            category: 'music',
+            price: 9.99,
+            frequency: 'monthly',
+            cc_type: 'visa',
+            cc_digits: 1234,
+            cc_nickname: 'Andy\'s Visa',
+            due_date: '2017-12-12'
+        }
+    }
+}
