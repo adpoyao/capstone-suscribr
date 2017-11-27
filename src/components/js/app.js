@@ -9,7 +9,7 @@ import {
 import Home from './home';
 import Signup from './signup';
 import LoginForm from './login-form';
-// import Dashboard from './dashboard';
+import Dashboard from './dashboard';
 // import SubInfo from './sub-info';
 // import SubAdd from './sub-add';
 // import SubEdit from './sub-edit';
@@ -26,8 +26,8 @@ export default function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/signup" component={Signup}/>
               <Route exact path="/login" component={LoginForm}/>
-              {/* <Route exact path="/dashboard" component={Dashboard}/>
-              <Route exact path="/subscription/show/:sub" component={SubInfo}/>
+              <Route exact path="/dashboard" component={Dashboard}/>
+              {/*<Route exact path="/subscription/show/:sub" component={SubInfo}/>
               <Route exact path="/subscription/add" component={SubAdd}/>
               <Route exact path="/subscription/edit/:sub" component={SubEdit}/>
               <Route exact path="/summary" component={Summary}/> */}
