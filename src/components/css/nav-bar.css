@@ -1,0 +1,11 @@
+.links-nav {
+    margin: 0 auto;
+}
+
+
+.links-bar {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
