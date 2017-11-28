@@ -59,18 +59,20 @@ export default class Dashboard extends React.Component {
             <div className="dashboard-container">
                 <Logout />
                 <NavBar />
-                <Circle
-                    className="subCount-circle" 
-                    numberValue={this.state.subscriptions.length}
-                    textValue="Subscriptions"/>
-                <Circle 
-                    className="paymentDue-circle" 
-                    numberValue={this.state.paymentsDue}
-                    textValue="Payments due this week"/>
-                <Circle 
-                    className="monthlyCose-circle" 
-                    numberValue={this.state.monthlyCost}
-                    textValue="Monthly total"/>
+                <div className="circles">
+                    <Circle
+                        className="subCount-circle" 
+                        numberValue={this.state.subscriptions.length}
+                        textValue="Subscriptions"/>
+                    <Circle 
+                        className="paymentDue-circle" 
+                        numberValue={this.state.paymentsDue}
+                        textValue="Payments due this week"/>
+                    <Circle 
+                        className="monthlyCose-circle" 
+                        numberValue={this.state.monthlyCost}
+                        textValue="Monthly total"/>
+                </div>
                 <SubTable subscriptions={this.state.subscriptions}/>
             </div>
         )

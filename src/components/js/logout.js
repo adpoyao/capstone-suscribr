@@ -4,7 +4,7 @@ import '../css/logout.css';
 export default function Logout() {
     return (
         <div className="logout-container">
-            <a href="/">Log out</a>
+            <a className="logout-link" href="/">Log out</a>
         </div>
     )
 }
