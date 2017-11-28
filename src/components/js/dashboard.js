@@ -60,6 +60,7 @@ export class Dashboard extends React.Component {
     }
 
     render() {
+        
         return (
             <div className="dashboard-container">
                 <Logout />
@@ -67,7 +68,7 @@ export class Dashboard extends React.Component {
                 <div className="circles">
                     <Circle
                         className="subCount-circle" 
-                        // numberValue={this.state.subscriptions.length}
+                        numberValue={this.state.subscriptions.length}
                         textValue="Subscriptions"/>
                     <Circle 
                         className="paymentDue-circle" 
@@ -84,4 +85,8 @@ export class Dashboard extends React.Component {
     }
 }
 
-export default connect()(Dashboard)
+const mapStateToProps = state => {
+    subscriptions: state.subscriptions
+}
+
+export default connect(mapStateToProps)(Dashboard)
