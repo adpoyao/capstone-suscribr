@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../css/signup-success.css';
+
 export default function SignupSuccess() {
     return(
         <div className="signup-success">

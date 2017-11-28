@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/logout.css';
 
 export default function Logout() {
     return (

@@ -1,4 +1,7 @@
 import React from 'react';
+// import {Field} from 'redux-form';
+
+import '../css/signup-form.css';
 
 export default function SignupForm() {
     return(

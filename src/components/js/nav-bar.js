@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/nav-bar.css';
 
 export default function NavBar() {
     return (
