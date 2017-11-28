@@ -2,20 +2,23 @@ import React from 'react';
 import '../css/login-form.css';
 
 export default function LoginForm() {
-    return(
+    return (
         <div className="login-form">
             <h2>🌶 Subscribr</h2>
             <form>
                 <fieldset>
                     <legend>Log In</legend>
-                    <label for="username">Username</label>
-                    <input type="text" id="username"></input>
-                    <label for="password">Password</label>
-                    <input type="text" id="password"></input>
-                    <button type="submit">Submit</button>
+                    <label for="username">
+                        <input type="text" id="username" placeholder="username"></input>
+                    </label>
+                    <label for="password">
+                        <input type="password" id="password" placeholder="password"></input>
+                    </label>
+                    <button type="submit" className="submit-login">Submit</button>
                 </fieldset>
-                <p>Don't have an account yet? Sign up <a href="/signup">here</a>.</p>
             </form>
-        </div>
+            <p>Don't have an account yet? Sign up <a href="/signup">here</a>.</p>
+            </div>
+    
     )
 }

@@ -5,23 +5,29 @@ import '../css/signup-form.css';
 
 export default function SignupForm() {
     return(
-        <div className="login-form">
+        <div className="signup-form">
             <form>
                 <fieldset>
                     <legend>Sign Up</legend>
-                    <label for="first-name">First name</label>
-                    <input type="text" id="first-name"></input>
-                    <label for="last-name">Last name</label>
-                    <input type="text" id="last-name"></input>
-                    <label for="email">Email</label>
-                    <input type="text" id="email"></input>
-                    <label for="username">Username</label>
-                    <input type="text" id="username"></input>
-                    <label for="password">Password</label>
-                    <input type="text" id="password"></input>
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="text" id="confirm-password"></input>
-                    <button type="submit">Submit</button>
+                    <label for="first-name">
+                        <input type="text" id="first-name" placeholder="first name"></input>
+                    </label>
+                    <label for="last-name">
+                        <input type="text" id="last-name" placeholder="last name"></input>
+                    </label>
+                    <label for="email">
+                        <input type="text" id="email" placeholder="email address"></input>
+                    </label>
+                    <label for="username">
+                        <input type="text" id="username" placeholder="username"></input>
+                    </label>
+                    <label for="password">
+                        <input type="password" id="password" placeholder="password"></input>
+                    </label>
+                    <label for="confirm-password">
+                        <input type="password" id="confirm-password" placeholder="confirm password"></input>
+                    </label>
+                    <button type="submit" className="submit-signup">Submit</button>
                 </fieldset>
                 <p>Already have an account? Log in <a href="/login">here</a>.</p>
             </form>
