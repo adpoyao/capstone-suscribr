@@ -20,9 +20,9 @@ export function Signup(props) {
     )
 }
 
-export default connect()(Signup)
-// const mapStateToProps = state => ({
-//     loggedIn: state.auth.currentUser !== null
-// });
+// export default connect()(Signup)
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
 
-// export default connect(mapStateToProps)(Signup)
+export default connect(mapStateToProps)(Signup)
