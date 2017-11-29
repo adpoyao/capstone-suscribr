@@ -56,6 +56,9 @@ export class Dashboard extends React.Component {
     // }
     
     componentDidMount() {
+        if (!this.props.loggedIn) {
+            return;
+        }
         this.props.dispatch(fetchAllSubscriptions())
     }
 
@@ -68,7 +71,7 @@ export class Dashboard extends React.Component {
                 <div className="circles">
                     <Circle
                         className="subCount-circle" 
-                        numberValue={this.state.subscriptions.length}
+                        // numberValue={this.state.subscriptions.length}
                         textValue="Subscriptions"/>
                     <Circle 
                         className="paymentDue-circle" 
@@ -86,7 +89,7 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-    subscriptions: state.subscriptions
+    subscriptions: state.subscribr.subscriptions
 }
 
 export default connect(mapStateToProps)(Dashboard)

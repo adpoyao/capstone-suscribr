@@ -1,36 +1,105 @@
 import React from 'react';
-// import {Field} from 'redux-form';
+import {Link} from 'react-router-dom'
+import {Field, reduxForm, focus} from 'redux-form';
+import {required, nonEmpty, matches, length, isTrimmed, email} from '../../validators';
+import {addUser} from '../../actions/users'
+import {login} from '../../actions/auth'
+import Input from './input'
 
 import '../css/signup-form.css';
 
-export default function SignupForm() {
-    return(
-        <div className="signup-form">
-            <form>
+export class SignupForm extends React.Component {
+    onSubmit(values) {
+        const {firstName, lastName, email, username, password} = values;
+        const user = {firstName, lastName, email, username, password};
+        return this.props
+            .dispatch(addUser(user))
+            .then(() => this.props.dispatch(login(username, password)));
+    }
+
+    render() {
+        let successMessage;
+        if (this.props.submitSucceeded) {
+            successMessage = (
+                <div className="signup sigup-success">
+                    Signed up successfully
+                </div>
+            );
+        }
+
+        let errorMessage;
+        if (this.props.error) {
+            errorMessage = (
+                <div className="signup signup-error">{this.props.error}</div>
+            );
+        }
+        return (
+            <form
+                className="signup-form"
+                onSubmit={this.props.handleSubmit(values => 
+                    this.onSubmit(values)
+                )}>
+
+                {successMessage}
+                {errorMessage}
+                
                 <fieldset>
                     <legend>Sign Up</legend>
-                    <label for="first-name">
-                        <input type="text" id="first-name" placeholder="first name"></input>
-                    </label>
-                    <label for="last-name">
-                        <input type="text" id="last-name" placeholder="last name"></input>
-                    </label>
-                    <label for="email">
-                        <input type="text" id="email" placeholder="email address"></input>
-                    </label>
-                    <label for="username">
-                        <input type="text" id="username" placeholder="username"></input>
-                    </label>
-                    <label for="password">
-                        <input type="password" id="password" placeholder="password"></input>
-                    </label>
-                    <label for="confirm-password">
-                        <input type="password" id="confirm-password" placeholder="confirm password"></input>
-                    </label>
-                    <button type="submit" className="submit-signup">Submit</button>
+                    
+                    <label htmlFor="firstName" >First Name</label>
+                    <Field component={Input} type="text" name="firstName" id="firstName" placeholder="First Name" />
+                    
+                    <label htmlFor="lastName">Last Name</label>
+                    <Field component={Input} type="text" name="lastName" id="lastName" placeholder="Last Name" />
+                    
+                    <label htmlFor="email">Email</label>
+                    <Field component={Input} type="text" name="email" id="email" placeholder="Email Address" validate={[email]}/>
+
+                    <label htmlFor="username">Username</label>
+                    <Field
+                        component={Input}
+                        type="text"
+                        name="username"
+                        id="username"
+                        placeholder="Username"
+                        validate={[required, nonEmpty, isTrimmed]}                        
+                        />
+                    
+                    <label htmlFor="password">Password</label>              
+                    <Field
+                        component={Input}
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Password"
+                        validate={[required, length({min: 6, max: 72}), isTrimmed]}
+                        />
+                    
+                    <label htmlFor="confirm-password">Confirm password</label>
+                    <Field
+                        component={Input}
+                        type="password"
+                        name="confirm-password"
+                        id="confirm-password"
+                        placeholder="Confirm Password"
+                        validate={[required, nonEmpty, matches('password')]}                        
+                    />
+                    
+                    <button 
+                        type="submit"
+                        disabled={
+                            this.props.pristine ||
+                            this.props.submitting
+                        }>Register</button>
                 </fieldset>
-                <p>Already have an account? Log in <a href="/login">here</a>.</p>
+                <p>Already have an account? Log in <Link to={'/login'}><span className="log-in-here">here</span></Link>.</p>
             </form>
-        </div>
-    )
+        )
+    }
 }
+
+export default reduxForm({
+    form: 'signup',
+    onSubmitFail: (errors, dispatch) =>
+        dispatch(focus('signup', Object.keys(errors)[0]))
+})(SignupForm);
