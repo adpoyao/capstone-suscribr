@@ -1,4 +1,6 @@
 import React from 'react';
+
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Field, reduxForm, focus} from 'redux-form';
 
@@ -13,9 +15,21 @@ import '../css/sub-add.css';
 
 export class SubAdd extends React.Component {
   onSubmit(values) {
-    return this.props.dispatch(addSub(
-      //EDIT THIS
-      values.username, values.password));
+    const newSubscription = {
+      subscriptionName: values.subscriptionName,
+      category: values.category,
+      price: values.price,
+      frequency: values.frequency,
+      ccType: values.ccType,
+      ccDigits: values.ccDigits,
+      ccNickname: values.ccNickname,
+      paymentDate: values.paymentDate,
+      active: values.active,
+      userId: this.props.userId
+    }
+
+    return this.props.dispatch(addSub(newSubscription)
+    );
 }
 
   render() {
@@ -45,56 +59,94 @@ export class SubAdd extends React.Component {
           <Field
             component={Input}
             type="text" 
-            name="sub-name" 
+            name="subscriptionName" 
             placeholder="Subscription Name"
           />
           
-          <label htmlFor="sub-category"></label>
           <p className="icon">♫</p> 
-          <Field name="sub-category" component="select">
-            <option value="0">Music</option>
-            <option value="1">Entertainment</option>
-            <option value="2">Work</option>
-            <option value="3">Lifestyle</option>
-            <option value="4">Other</option>
+          <label htmlFor="sub-category"></label>
+          <Field name="category" component="select">
+            <option value="music">Music</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="work">Work</option>
+            <option value="lifestyle">Lifestyle</option>
+            <option value="other">Other</option>
           </Field>
           
-          <label htmlFor="sub-price"></label>
           <p className="sub-price">$</p>
+          <label htmlFor="sub-price"></label>
           <Field
-            // type="number" 
-            // step="0.01" 
+            type="number" 
+            step="0.01" 
             component={Input}
-            name="sub-price" 
-            placeholder="price">
+            name="price" 
+            placeholder="price" />
           <p> / </p>
-          <label htmlFor="sub-frequency"></label>
-          <Field name="sub-frequency" component="select">
-            <option value="0">Daily</option>
-            <option value="1">Weekly</option>
-            <option value="2" selected>Monthly</option>
-            <option value="3">Annually</option>
+          <label htmlFor="subfrequency"></label>
+          <Field name="frequency" id="subfrequency" component="select">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="annually">Annually</option>
           </Field>
        
-          <label htmlFor="sub-payment-type"></label>
           <p className="icon">*</p>
-            <input type="text" name="sub-payment-type" placeholder="Payment: Method"></input>
-            <input type="number" name="sub-payment-digits" placeholder="Payment: Last 4 Digits"></input>
-            <input type="text" name="sub-payment-nickname" placeholder="Payment: Nickname"></input>
-          </label>
+          <label htmlFor="sub-payment-type"></label>
+          <Field 
+            component={Input} 
+            name="ccType" 
+            placeholder="Payment: Method" />
+          <label htmlFor="sub-poayment-digits"></label>
+          <Field
+            type="number"
+            component={Input}
+            name="ccDigits" 
+            placeholder="Payment: Last 4 Digits" />
+          <label htmlFor="sub-poayment-nickname"></label>
+          <Field
+            component={Input} 
+            name="ccNickname" 
+            placeholder="Payment: Nickname" />
 
-          <label htmlFor="sub-payment-date">
-            <p className="icon">*</p>
-            <input type="date"></input>
-          </label>
+          <p className="icon">*</p>
+          <label htmlFor="sub-payment-date"></label>
+          <Field 
+            name="paymentDate"
+            component={Input}
+            type="date"/>
+          
+          <Field 
+            component={Input}
+            type="checkbox"
+            name="active" 
+            type="checkbox"
+            id="subcheckbox" 
+            defaultChecked />
+          <label htmlFor="subcheckbox">Active?</label>
 
-          <input name="sub-checkbox" type="checkbox" defaultChecked></input>
-          <label htmlFor="sub-checkbox">Active?</label>
-
-          <button type="submit">Add</button>
+          {/* TODO: Redirect to Dashboard */}
+          <button disabled={this.props.pristine || this.props.submitting}>
+              ADD
+          </button>  
 
         </form>
       </div>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  userId: state.auth.currentUser.id, 
+})
+
+SubAdd = connect(
+  mapStateToProps
+)(SubAdd);
+
+
+export default reduxForm({
+  form: 'addSub',
+  initialValues: { active: true, frequency: "monthly"}
+
+  // onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
+})(SubAdd);

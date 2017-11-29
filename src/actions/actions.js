@@ -37,8 +37,7 @@ export const fetchAllSubscriptions = (userId) => (dispatch, getState) => {
 		}
 	}).then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		.then(({data}) => dispatch(fetchSuccess(data)))
-		.catch(err => {
-			dispatch(fetchError(err));
+		.then(data => {dispatch(fetchSuccess(data))
+		}).catch(err => {dispatch(fetchError(err));
 		});
 };

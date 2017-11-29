@@ -5,7 +5,6 @@ import {normalizeResponseErrors} from './utils';
 //ASYNC
 export const ADD_USER = 'ADD_USER';
 export const addUser = user => dispatch => {
-  console.log('===user', user);
 	return fetch(`${API_BASE_URL}/users`, {
     method: 'POST',
     body: JSON.stringify(user),
