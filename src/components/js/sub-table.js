@@ -1,24 +1,29 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 import '../css/sub-table.css';
 
 export default function SubTable(props) {
-    
+
+    console.log(props.subscriptions);
+
+    let subscriptionData = [];
     let subscriptionBoxes = [];
 
     if (props.subscriptions) {
-        subscriptionBoxes = props.subscriptions.map((sub, index) => {
-             (
-                <div key={index}><a href={`/subscription/show/${sub.id}`} >{sub.name}</a></div>
-            )
-        })
+        subscriptionData = props.subscriptions.map(sub => [sub.id, sub.subscription_name]);
     }
 
-    console.log("subscriptionBoxes:", subscriptionBoxes);
+    subscriptionBoxes = subscriptionData.map((sub, index) => 
+    <div className={"sub-box sub-box-" + sub[0]} key={index}>
+        <span className="sub-text">
+            <Link to={`/subscription/show/` + sub[0]}>{sub[1]}</Link>
+        </span>
+    </div>)
 
+    console.log(subscriptionBoxes);
     return (
         <div className="sub-table"> 
-            {subscriptionBoxes}
+            {subscriptionBoxes.map(sub => sub)}
         </div>
     )
 }

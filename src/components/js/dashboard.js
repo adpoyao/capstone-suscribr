@@ -16,15 +16,13 @@ export class Dashboard extends React.Component {
     }
 
     render() {
-        console.log(monthlyCost);
-
         let monthly = [];
         let yearly = [];
         if (this.props.subscriptions) {
             monthly = this.props.subscriptions.filter(sub => sub.frequency === 'monthly')
-            yearly = this.props.subscriptions.filter(sub => sub.frequency === 'yearly')
+            yearly = this.props.subscriptions.filter(sub => sub.frequency === 'annually')
         }
-        console.log(monthly, yearly)
+        let subs = monthly.length + yearly.length;
 
         let monthlyCost = 0;
         let yearlyCost = 0;
@@ -34,6 +32,8 @@ export class Dashboard extends React.Component {
             for (let i = 0; i < monthly.length; i++) {
                 monthlyCost += monthly[i].price;
             }
+
+            monthlyCost = (Math.round(monthlyCost*100))/100
         }
 
         if (yearly) {
@@ -41,29 +41,28 @@ export class Dashboard extends React.Component {
                 yearlyCost += yearly[i].price;
             }
         }
-
-        monthlyCost = monthlyCost;
-        annualCost = (yearlyCost + (monthlyCost*12));
-
+        annualCost = (yearlyCost + Math.round((monthlyCost*12*100)/100));
+        
         return (
             <div className="dashboard-container">
                 <Logout />
                 <NavBar />
-                <div className="circles">
-                    <Circle
-                        numberValue={monthly.length}
-                        textValue={monthly.length === 1 ? "Monthly Subscription" : "Monthly Subscriptions"}/>
-                    <Circle 
-                        numberValue={monthlyCost}
-                        textValue="Monthly total"/>
-                    <Circle 
-                        numberValue={yearly.length}
-                        textValue={monthly.length === 1 ? "Yearly Subscription" : "Yearly Subscriptions"}/>
-                    <Circle 
-                        numberValue={annualCost}
-                        textValue="Yearly Total"/>
-                </div>
-                <SubTable subscriptions={this.props.subscriptions}/>
+                <div className="loading-container">{this.props.loading ? <span className="loading">Loading . . .</span> :
+                    <div className="circles-sub-table">
+                        <div className="circles">
+                            <Circle
+                                numberValue={subs}
+                                textValue={subs === 1 ? "Subscription" : "Subscriptions"}/>
+                            <Circle 
+                                numberValue={"$" + monthlyCost}
+                                textValue="Monthly Total"/>
+                            <Circle 
+                                numberValue={"$" + annualCost}
+                                textValue="Yearly Total"/>
+                        </div>
+                        <SubTable subscriptions={this.props.subscriptions}/>
+                    </div>
+             }</div>
             </div>
         )
     }
