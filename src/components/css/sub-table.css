@@ -1,0 +1,24 @@
+.sub-table {
+    width: 568px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: row wrap;
+    /* justify-content: space-between; */
+}
+
+.sub-box {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    padding: 5px;
+    width: 120px;
+    height: 40px;
+    vertical-align: middle;
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
+.sub-text {
+    font-size: 20px;
+}
