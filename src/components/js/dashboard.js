@@ -8,14 +8,14 @@ import Circle from './circle';
 import SubTable from './sub-table';
 
 import '../css/dashboard.css';
-import { fetchAllSubscriptions } from '../../actions';
+import { fetchAllSubscriptions } from '../../actions/actions';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
         if (!this.props.loggedIn) {
             return;
         }
-        this.props.dispatch(fetchAllSubscriptions())
+        this.props.dispatch(fetchAllSubscriptions(this.props.userId))
     }
 
     render() {
@@ -73,7 +73,8 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => ({
     subscriptions: state.subscribr.subscriptions,
-    loading: state.loading
+    loading: state.subscribr.loading,
+    userId: state.auth.currentUser.id
 })
 
 

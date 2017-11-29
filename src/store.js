@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import {reducer as formReducer} from 'redux-form'
 
-import {subscribrReducer} from './reducer';
+import {subscribrReducer} from './reducers/reducer';
 import authReducer from './reducers/auth'
 
 export default createStore(combineReducers({

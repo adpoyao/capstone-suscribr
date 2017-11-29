@@ -5,13 +5,13 @@ import {connect} from 'react-redux';
 import Logout from './logout';
 import NavBar from './nav-bar';
 
-import {fetchAllSubscriptions} from '../../actions';
+import { fetchAllSubscriptions } from '../../actions/actions';
 
 import '../css/sub-info.css';
 
 export class SubInfo extends React.Component {
     componentDidMount() {
-        this.props.dispatch(fetchAllSubscriptions())
+        this.props.dispatch(fetchAllSubscriptions(this.props.userId))
     }
 
     render() {
@@ -46,8 +46,9 @@ export class SubInfo extends React.Component {
 }
 
 const matchStateToProps = state => ({
-    subscriptions: state.subscriptions,
-    loading: state.loading
+    subscriptions: state.subscribr.subscriptions,
+    loading: state.subscribr.loading,
+    userId: state.auth.currentUser.id
 })
 
 export default connect(matchStateToProps)(SubInfo);

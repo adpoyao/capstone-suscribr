@@ -1,5 +1,5 @@
-import {API_BASE_URL} from './config';
-import {normalizeResponseErrors} from './actions/utils';
+import {API_BASE_URL} from '../config';
+import {normalizeResponseErrors} from './utils';
 
 // sync
 export const FETCH_REQUEST = 'FETCH_REQUEST';
@@ -39,6 +39,6 @@ export const fetchAllSubscriptions = (userId) => (dispatch, getState) => {
 		.then(res => res.json())
 		.then(({data}) => dispatch(fetchSuccess(data)))
 		.catch(err => {
-				dispatch(fetchError(err));
+			dispatch(fetchError(err));
 		});
 };
