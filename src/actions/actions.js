@@ -27,7 +27,7 @@ export const FETCH_ALL_SUBSCRIPTIONS = 'FETCH_ALL_SUBSCRIPTIONS';
 export const fetchAllSubscriptions = (userId) => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
 	dispatch(fetchRequest());
-	return fetch('http://localhost:8080/api/subscriptions', {
+	return fetch(`${API_BASE_URL}/subscriptions`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json', 

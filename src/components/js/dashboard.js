@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom'
 
 import Logout from './logout';
 import NavBar from './nav-bar';
@@ -63,6 +64,7 @@ export class Dashboard extends React.Component {
                                 numberValue={"$" + annualCost}
                                 textValue="Yearly Total"/>
                         </div>
+                        <Link to={`/subadd`}>ADD NEW SUBSCRIPTION</Link>
                         <SubTable subscriptions={this.props.subscriptions}/>
                     </div>
              }</div>
@@ -74,7 +76,8 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => ({
     subscriptions: state.subscribr.subscriptions,
     loading: state.subscribr.loading,
-    userId: state.auth.currentUser.id
+    userId: state.auth.currentUser.id,
+    loggedIn: state.auth.currentUser !== null
 })
 
 

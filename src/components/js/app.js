@@ -7,7 +7,7 @@ import {
 
 import Home from './home';
 import Signup from './signup';
-import LoginForm from './login-form';
+import Login from './login';
 import Dashboard from './dashboard';
 import SubInfo from './sub-info';
 import SubAdd from './sub-add';
@@ -24,8 +24,9 @@ export default function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/signup" component={Signup}/>
-              <Route exact path="/login" component={LoginForm}/>
+              <Route exact path="/login" component={Login}/>
               <Route exact path="/dashboard" component={Dashboard}/>
+              <Route exact path="/subadd" component={SubAdd}/>
               <Route exact path="/subscription/show/:sub" component={SubInfo}/>
               <Route exact path="/subscription/add" component={SubAdd}/> */}
               <Route exact path="/subscription/edit/:sub" component={SubEdit}/>

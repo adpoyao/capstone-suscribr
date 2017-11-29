@@ -4,7 +4,7 @@ const initialState = {
 	login: false,
 	displayAbout: false,
 	userId: null,
-	loading: true,
+	loading: false,
 	error: null,
 	subscriptions: []
 };
