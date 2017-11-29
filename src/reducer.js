@@ -4,12 +4,10 @@ const initialState = {
 	login: false,
 	displayAbout: false,
 	userId: null,
-	loading: false,
+	loading: true,
 	error: null,
 	subscriptions: []
 };
-
-
 
 export const subscribrReducer = (state=initialState, action) => {
 	if (action.type === actions.FETCH_REQUEST) {

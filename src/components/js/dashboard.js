@@ -11,82 +11,67 @@ import '../css/dashboard.css';
 import { fetchAllSubscriptions } from '../../actions';
 
 export class Dashboard extends React.Component {
-	// constructor(props) {
-	// 	super(props);
-
-	// 	this.state = {
-    //         subscriptions: [
-    //             {
-    //                 id: 1,
-    //                 name: 'Spotify Premium',
-    //                 category: 'music',
-    //                 price: 9.99,
-    //                 frequency: 'monthly',
-    //                 cc_type: 'visa',
-    //                 cc_digits: 1234,
-    //                 cc_nickname: 'Andy\'s Visa',
-    //                 due_date: '2017-12-12'
-    //                 },
-    //             {
-    //                 id: 2,
-    //                 name: 'Netflix',
-    //                 category: 'entertainment',
-    //                 price: 11.99,
-    //                 frequency: 'monthly',
-    //                 cc_type: 'visa',
-    //                 cc_digits: 1234,
-    //                 cc_nickname: 'Andy\'s Visa',
-    //                 due_date: '2017-12-15'
-    //                 },
-    //             {
-    //                 id: 3,
-    //                 name: 'Hulu',
-    //                 category: 'entertainment',
-    //                 price: 8.99,
-    //                 frequency: 'monthly',
-    //                 cc_type: 'visa',
-    //                 cc_digits: 5678,
-    //                 cc_nickname: 'Eddie\'s MasterCard',
-    //                 due_date: '2017-12-24'
-    //                 },
-    //         ],
-	// 		monthlyCost: 40,
-	// 		paymentsDue: 3
-	// 	};
-    // }
-    
     componentDidMount() {
         this.props.dispatch(fetchAllSubscriptions())
     }
 
     render() {
-        
+        console.log(monthlyCost);
+
+        let monthly = [];
+        let yearly = [];
+        if (this.props.subscriptions) {
+            monthly = this.props.subscriptions.filter(sub => sub.frequency === 'monthly')
+            yearly = this.props.subscriptions.filter(sub => sub.frequency === 'yearly')
+        }
+        console.log(monthly, yearly)
+
+        let monthlyCost = 0;
+        let yearlyCost = 0;
+        let annualCost = 0;
+
+        if (monthly) {
+            for (let i = 0; i < monthly.length; i++) {
+                monthlyCost += monthly[i].price;
+            }
+        }
+
+        if (yearly) {
+            for (let i = 0; i < yearly.length; i++) {
+                yearlyCost += yearly[i].price;
+            }
+        }
+
+        monthlyCost = monthlyCost;
+        annualCost = (yearlyCost + (monthlyCost*12));
+
         return (
             <div className="dashboard-container">
                 <Logout />
                 <NavBar />
                 <div className="circles">
                     <Circle
-                        className="subCount-circle" 
-                        numberValue={this.state.subscriptions.length}
-                        textValue="Subscriptions"/>
+                        numberValue={monthly.length}
+                        textValue={monthly.length === 1 ? "Monthly Subscription" : "Monthly Subscriptions"}/>
                     <Circle 
-                        className="paymentDue-circle" 
-                        // numberValue={this.state.paymentsDue}
-                        textValue="Payments due this week"/>
-                    <Circle 
-                        className="monthlyCose-circle" 
-                        // numberValue={this.state.monthlyCost}
+                        numberValue={monthlyCost}
                         textValue="Monthly total"/>
+                    <Circle 
+                        numberValue={yearly.length}
+                        textValue={monthly.length === 1 ? "Yearly Subscription" : "Yearly Subscriptions"}/>
+                    <Circle 
+                        numberValue={annualCost}
+                        textValue="Yearly Total"/>
                 </div>
-                {/* <SubTable subscriptions={this.state.subscriptions}/> */}
+                <SubTable subscriptions={this.props.subscriptions}/>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {
-    subscriptions: state.subscriptions
-}
+const mapStateToProps = state => ({
+    subscriptions: state.subscriptions,
+    loading: state.loading
+})
 
 export default connect(mapStateToProps)(Dashboard)
