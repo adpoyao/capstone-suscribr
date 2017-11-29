@@ -1,3 +1,6 @@
+import {API_BASE_URL} from './config';
+import {normalizeResponseErrors} from './actions/utils';
+
 // sync
 export const FETCH_REQUEST = 'FETCH_REQUEST';
 export const fetchRequest = () => ({
@@ -21,16 +24,21 @@ export const fetchSuccess = subscriptions => ({
 // export const fetchSubscription = () => dispatch => {};
 
 export const FETCH_ALL_SUBSCRIPTIONS = 'FETCH_ALL_SUBSCRIPTIONS';
-export const fetchAllSubscriptions = () => dispatch => {
+export const fetchAllSubscriptions = (userId) => (dispatch, getState) => {
+	const authToken = getState().auth.authToken;
 	dispatch(fetchRequest());
 	return fetch('http://localhost:8080/api/subscriptions', {
 		method: 'GET',
-		headers: {'Content-Type': 'application/json', 'Accept': 'application/json' , 'user_id': '1'}
-	}).then(res => {
-		if (!res.ok) {
-			return Promise.reject(res.statusText);
+		headers: {
+			'Content-Type': 'application/json', 
+			'Accept': 'application/json' , 
+			'user_id': userId,
+			'Authorization': `Bearer ${authToken}`
 		}
-		return res.json();
-	}).then(subs => dispatch(fetchSuccess(subs)))
-		.catch(err => {dispatch(fetchError(err));});
+	}).then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.then(({data}) => dispatch(fetchSuccess(data)))
+		.catch(err => {
+				dispatch(fetchError(err));
+		});
 };

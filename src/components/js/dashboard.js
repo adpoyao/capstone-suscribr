@@ -12,6 +12,9 @@ import { fetchAllSubscriptions } from '../../actions';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
+        if (!this.props.loggedIn) {
+            return;
+        }
         this.props.dispatch(fetchAllSubscriptions())
     }
 
@@ -69,8 +72,9 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    subscriptions: state.subscriptions,
+    subscriptions: state.subscribr.subscriptions,
     loading: state.loading
 })
+
 
 export default connect(mapStateToProps)(Dashboard)
