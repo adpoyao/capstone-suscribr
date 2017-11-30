@@ -22,11 +22,12 @@ export class SubInfo extends React.Component {
         let idNumber = this.props.match.params.sub;
 
         let sub = subscriptions.find(sub => sub.id === Number(idNumber));
-
+        console.log(sub);
         return (
             <div className="sub-info-container">
                 <Logout />
                 <NavBar />
+                <Link to={`/dashboard`} className="x-out">X</Link>
                 <div className="sub-info">
                     <div className="loading-container">{this.props.loading ? <span className="loading">Loading . . .</span> :
                         <div className="h3-ul-container">
