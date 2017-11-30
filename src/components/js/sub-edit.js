@@ -141,9 +141,10 @@ export class SubEdit extends React.Component {
 
 const mapStateToProps = function(state, props){
 
-  let idNumber = props.match.params.sub;
-  let subscription = state.subscribr.subscriptions.find(sub => sub.id === idNumber);
-  
+  let idNumber = Number(props.match.params.sub);
+  let subscriptionList = state.subscribr.subscriptions
+  let subscription = subscriptionList.find(sub => {return sub.id === idNumber});
+
   return {
   subscriptions: state.subscribr.subscriptions,
   loading: state.subscribr.loading,
@@ -151,18 +152,17 @@ const mapStateToProps = function(state, props){
   postId: state.auth.currentUser.postId,
   loggedIn: state.auth.currentUser !== null,
   
-
-  // Initial Values
+  //Initial Values
   initialValues: {
-      subscriptionName: subscription[0]['subscription_name'],
-      category: subscription[0].category,
-      price: subscription[0].price,
-      frequency: subscription[0].frequency,
-      ccType: subscription[0]['cc_type'],
-      ccDigits: subscription[0]['cc_digits'],
-      ccNickname: subscription[0]['cc_nickname'],
-      paymentDate: subscription[0]['due_date'], 
-      active: subscription[0].active
+      subscriptionName: subscription['subscription_name'],
+      category: subscription.category,
+      price: subscription.price,
+      frequency: subscription.frequency,
+      ccType: subscription['cc_type'],
+      ccDigits: subscription['cc_digits'],
+      ccNickname: subscription['cc_nickname'],
+      paymentDate: subscription['due_date'], 
+      active: subscription.active
   }
 
   }
