@@ -49,7 +49,7 @@ export class SubInfo extends React.Component {
                 <button type="button" className="delete-button" 
                     onClick={()=> {
                         this.props.dispatch(delSub(this.props.userId, idNumber))
-                        .then(()=> this.props.history.push('/dashboard'))
+                        .then(()=> this.props.history.push('/'))
                     }}>Delete</button>
             </div>         
         )
