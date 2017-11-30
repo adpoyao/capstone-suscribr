@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 
 import Logout from './logout';
 import NavBar from './nav-bar';
@@ -20,6 +20,10 @@ export class Dashboard extends React.Component {
     }
 
     render() {
+        if (!this.props.loggedIn) {
+            return <Redirect to="/login" />
+        };
+
         let monthly = [];
         let yearly = [];
         if (this.props.subscriptions) {
@@ -78,7 +82,7 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => ({
     subscriptions: state.subscribr.subscriptions,
     loading: state.subscribr.loading,
-    userId: state.auth.currentUser.id,
+    userId: state.auth.currentUser ? state.auth.currentUser.id : 0,
     loggedIn: state.auth.currentUser !== null
 })
 
