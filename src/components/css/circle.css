@@ -10,10 +10,40 @@ span {
 }
 
 .circle-container {
+    top: 0;
+    transition: 250ms;
+    position: relative;
     display: inline-block;
     width: 250px;
     height: 250px;
     border-radius: 50%;
     border: solid 1px black;
-
 }
+
+.circle-container:hover {
+    top: -15px;
+}
+
+.circle-1:hover {
+    top: -15px;
+}
+
+.circle-1 {
+    background-color: #124E78;
+    color: #BFEBFF;
+    z-index: 1;
+ }
+
+.circle-2 {
+    background-color: #F2BB05;
+    color: #FFFFAB;
+    z-index: 2;
+    margin-left: -25px; 
+}
+
+.circle-3 {
+    background-color: #C83137;
+    color: #FFC0B4;
+    z-index: 3;
+    margin-left: -25px;
+ }

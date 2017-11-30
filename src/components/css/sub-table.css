@@ -1,6 +1,6 @@
 .sub-table {
     width: 568px;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -21,4 +21,10 @@
 
 .sub-text {
     font-size: 20px;
+}
+
+.sub-button {
+    position: relative;
+    top: 25%;
+    bottom: 25%;
 }

@@ -27,5 +27,6 @@ h4 {
 }
 
 .button-toggle:hover {
-    color: blue;
+    text-decoration: underline;
+    color: rgb(200,49,55);
 }

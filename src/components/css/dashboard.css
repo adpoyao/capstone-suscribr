@@ -7,3 +7,19 @@
 .loading {
     font-size: 50px;
 }
+
+.add-new {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 225px;
+    height: 36px;
+    border-radius: 8px;
+    border: solid 1px black;
+}
+
+.add-new > span {
+    position: relative;
+    top: 25%;
+    bottom: 25%;
+}
