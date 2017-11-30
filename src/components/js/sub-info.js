@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {connect} from 'react-redux';
-
+import {Link} from 'react-router-dom';
 import Logout from './logout';
 import NavBar from './nav-bar';
 
@@ -40,6 +40,12 @@ export class SubInfo extends React.Component {
                     }
                     </div>           
                 </div>
+                <Link to={`/subscription/edit/${idNumber}`}>
+                    <button type="button" className="edit-button">Edit</button>
+                </Link>
+                <Link to={`/dashboard`}>
+                    <button type="button" className="delete-button" onClick={console.log('Delete clicked.')}>Delete</button>
+                </Link>
             </div>
         )
     }
