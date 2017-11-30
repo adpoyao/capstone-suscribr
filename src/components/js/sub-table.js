@@ -4,7 +4,6 @@ import '../css/sub-table.css';
 
 export default function SubTable(props) {
 
-    console.log(props.subscriptions);
 
     let subscriptionData = [];
     let subscriptionBoxes = [];
@@ -20,7 +19,6 @@ export default function SubTable(props) {
         </span>
     </div>)
 
-    console.log(subscriptionBoxes);
     return (
         <div className="sub-table"> 
             {subscriptionBoxes.map(sub => sub)}

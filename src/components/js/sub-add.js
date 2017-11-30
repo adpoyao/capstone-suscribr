@@ -27,16 +27,16 @@ export class SubAdd extends React.Component {
       active: values.active,
       userId: this.props.userId
     }
-
-    return this.props.dispatch(addSub(newSubscription)
-    );
-}
+    
+    this.props.dispatch(addSub(newSubscription))
+    .then(()=> this.props.history.push('/dashboard'))  
+  }
 
   render() {
     let error;
     if (this.props.error) {
         error = (
-            <div className="login-error" aria-live="polite">
+            <div className="sub-add-error" aria-live="polite">
                 {this.props.error}
             </div>
         );
@@ -124,7 +124,6 @@ export class SubAdd extends React.Component {
             defaultChecked />
           <label htmlFor="subcheckbox">Active?</label>
 
-          {/* TODO: Redirect to Dashboard */}
           <button disabled={this.props.pristine || this.props.submitting}>
               ADD
           </button>  
@@ -140,8 +139,7 @@ const mapStateToProps = state => ({
 })
 
 SubAdd = connect(
-  mapStateToProps
-)(SubAdd);
+  mapStateToProps)(SubAdd);
 
 
 export default reduxForm({

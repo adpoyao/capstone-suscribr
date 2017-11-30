@@ -1,4 +1,8 @@
-import * as actions from '../actions/actions';
+import {FETCH_REQUEST, FETCH_ERROR, FETCH_SUCCESS} from '../actions/actions';
+import {ADD_SUB_REQUEST, ADD_SUB_ERROR, ADD_SUB_SUCCESS} from '../actions/add-sub';
+import {EDIT_SUB_REQUEST, EDIT_SUB_ERROR, EDIT_SUB_SUCCESS} from '../actions/edit-sub';
+import {DEL_SUB_REQUEST, DEL_SUB_ERROR, DEL_SUB_SUCCESS} from '../actions/del-sub';
+
 
 const initialState = {
 	login: false,
@@ -10,21 +14,42 @@ const initialState = {
 };
 
 export const subscribrReducer = (state=initialState, action) => {
-	if (action.type === actions.FETCH_REQUEST) {
+	if (
+		action.type === FETCH_REQUEST ||
+		action.type === ADD_SUB_REQUEST ||
+		action.type === EDIT_SUB_REQUEST ||
+		action.type === DEL_SUB_REQUEST
+	) {
 		return Object.assign({}, state, {
 			loading: true,
 			error: false
 		});
 	}
 
-	else if (action.type === actions.FETCH_ERROR) {
+	else if (
+		action.type === FETCH_ERROR ||
+		action.type === ADD_SUB_ERROR ||
+		action.type === EDIT_SUB_ERROR ||
+		action.type === DEL_SUB_ERROR
+	) {
 		return Object.assign({}, state, {
 			loading: false,
 			error: true
 		});
 	}
 
-	else if (action.type === actions.FETCH_SUCCESS) {
+	else if (
+		action.type === ADD_SUB_SUCCESS ||
+		action.type === EDIT_SUB_SUCCESS ||
+		action.type === DEL_SUB_SUCCESS
+	) {
+		return Object.assign({}, state, {
+			loading: false,
+			error: false
+		});
+	}
+
+	else if (action.type === FETCH_SUCCESS) {
 		return Object.assign({}, state, {
 			loading: false,
 			error: false,

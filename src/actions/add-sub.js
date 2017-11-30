@@ -21,7 +21,6 @@ export const addSubSuccess = () => ({
 
 
 //async
-//Server Needs: subscriptionName, category, price, frequency, ccType, ccDigits, ccNickname, dueDate, active, userId
 export const ADD_SUB = 'ADD_SUB';
 export const addSub = (newSubscription) => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;

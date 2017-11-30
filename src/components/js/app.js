@@ -10,9 +10,9 @@ import Signup from './signup';
 import Login from './login';
 import Dashboard from './dashboard';
 import SubInfo from './sub-info';
-import SubAdd from './sub-add';
 import SubEdit from './sub-edit';
 import Summary from './summary';
+import SubAdd from './sub-add';
 
 import '../css/app.css';
 
