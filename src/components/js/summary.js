@@ -1,7 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import Logout from './logout';
-import NavBar from './nav-bar';
+
+import {Link, Redirect} from 'react-router-dom'
+import Logout from './logout'
+import NavBar from './nav-bar'
 
 import {connect} from 'react-redux';
 import {fetchAllSubscriptions} from '../../actions/actions';
@@ -22,6 +23,10 @@ export class Summary extends React.Component {
   }
 
   render() {
+    if (!this.props.loggedIn) {
+      return <Redirect to="/login" />
+    };
+
     const subs = this.props.subscriptions;
 
     const categorizedSubs = [
@@ -101,7 +106,7 @@ export class Summary extends React.Component {
 const mapStateToProps = state => ({
   subscriptions: state.subscribr.subscriptions,
   loading: state.subscribr.loading,
-  userId: state.auth.currentUser.id,
+  userId: state.auth.currentUser ? state.auth.currentUser.id : 0,
   loggedIn: state.auth.currentUser !== null
 })
 

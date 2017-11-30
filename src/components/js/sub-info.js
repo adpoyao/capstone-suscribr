@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {delSub} from '../../actions/del-sub'
 
 import Logout from './logout';
@@ -17,26 +17,33 @@ export class SubInfo extends React.Component {
     }
 
     render() {
+        if (!this.props.loggedIn) {
+            return <Redirect to="/login" />
+        };
 
         let subscriptions = this.props.subscriptions;
         let idNumber = this.props.match.params.sub;
-
         let sub = subscriptions.find(sub => sub.id === Number(idNumber));
-        console.log(sub);
+        
+        let month = new Date(sub.due_date).getMonth();
+        let date = new Date(sub.due_date).getDate();
+
         return (
             <div className="sub-info-container">
                 <Logout />
                 <NavBar />
                 <Link to={`/dashboard`} className="x-out">X</Link>
+          
                 <div className="sub-info">
                     <div className="loading-container">{this.props.loading ? <span className="loading">Loading . . .</span> :
                         <div className="h3-ul-container">
                             <h3>{sub.subscription_name}</h3>
                             <ul>
-                                <li>♫ {sub.category}</li>
-                                <li>$ {sub.price}/{sub.frequency}</li>
-                                <li>* {sub.cc_type} {sub.cc_digits} {sub.cc_nickname}</li>
-                                <li>* {sub.due_date}</li>
+                                <li><span className="icon">♫</span> {sub.category}</li>
+                                <li><span className="icon">$</span> {sub.price}/{sub.frequency}</li>
+                                <li><span className="icon">*</span> {sub.cc_type} {sub.cc_digits} {sub.cc_nickname}</li>
+                                <li><span className="icon">*</span> Subscribed on: {month} / {date} </li>
+                                {/* <li><span className="icon">*</span> {sub.active = true ? `Active Subscription` : `Not Active`} </li> */}
                             </ul>
                         </div>
                     }
@@ -59,7 +66,8 @@ export class SubInfo extends React.Component {
 const matchStateToProps = state => ({
     subscriptions: state.subscribr.subscriptions,
     loading: state.subscribr.loading,
-    userId: state.auth.currentUser.id
+    userId: state.auth.currentUser ? state.auth.currentUser.id : 0,
+    loggedIn: state.auth.currentUser !== null    
 })
 
 export default connect(matchStateToProps)(SubInfo);
