@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
-import Logout from './logout'
-import NavBar from './nav-bar'
+import {Link} from 'react-router-dom';
+import Logout from './logout';
+import NavBar from './nav-bar';
 
 import {connect} from 'react-redux';
 import {fetchAllSubscriptions} from '../../actions/actions';

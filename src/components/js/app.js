@@ -13,6 +13,7 @@ import SubInfo from './sub-info';
 import SubEdit from './sub-edit';
 import Summary from './summary';
 import SubAdd from './sub-add';
+import About from './about';
 
 import '../css/app.css';
 
@@ -30,6 +31,7 @@ export default function App() {
               <Route exact path="/subscription/add" component={SubAdd}/>
               <Route exact path="/subscription/edit/:sub" component={SubEdit}/>
               <Route exact path="/summary" component={Summary}/>
+              <Route exact path="/about" component={About}/>
             </Switch>
           </main>
         </div>
