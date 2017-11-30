@@ -24,6 +24,7 @@ export class SubInfo extends React.Component {
         let subscriptions = this.props.subscriptions;
         let idNumber = this.props.match.params.sub;
         let sub = subscriptions.find(sub => sub.id === Number(idNumber));
+        
         let month = new Date(sub.due_date).getMonth();
         let date = new Date(sub.due_date).getDate();
 
@@ -31,7 +32,8 @@ export class SubInfo extends React.Component {
             <div className="sub-info-container">
                 <Logout />
                 <NavBar />
-                <Link to={`/dashboard`}>X</Link>
+                <Link to={`/dashboard`} className="x-out">X</Link>
+          
                 <div className="sub-info">
                     <div className="loading-container">{this.props.loading ? <span className="loading">Loading . . .</span> :
                         <div className="h3-ul-container">
