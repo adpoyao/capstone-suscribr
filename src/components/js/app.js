@@ -10,9 +10,9 @@ import Signup from './signup';
 import Login from './login';
 import Dashboard from './dashboard';
 import SubInfo from './sub-info';
-import SubAdd from './sub-add';
 import SubEdit from './sub-edit';
 import Summary from './summary';
+import SubAdd from './sub-add';
 
 import '../css/app.css';
 
@@ -26,7 +26,6 @@ export default function App() {
               <Route exact path="/signup" component={Signup}/>
               <Route exact path="/login" component={Login}/>
               <Route exact path="/dashboard" component={Dashboard}/>
-              <Route exact path="/subadd" component={SubAdd}/>
               <Route exact path="/subscription/show/:sub" component={SubInfo}/>
               <Route exact path="/subscription/add" component={SubAdd}/> */}
               <Route exact path="/subscription/edit/:sub" component={SubEdit}/>

@@ -1,6 +1,8 @@
 import React from 'react';
 
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {delSub} from '../../actions/del-sub'
 
 import Logout from './logout';
 import NavBar from './nav-bar';
@@ -20,7 +22,6 @@ export class SubInfo extends React.Component {
         let idNumber = this.props.match.params.sub;
 
         let sub = subscriptions.find(sub => sub.id === Number(idNumber));
-        console.log(sub);
 
         return (
             <div className="sub-info-container">
@@ -40,7 +41,16 @@ export class SubInfo extends React.Component {
                     }
                     </div>           
                 </div>
-            </div>
+                {/* //EDDIE'S CODE */}
+                <Link to={`/subscription/edit/${idNumber}`}>
+                    <button type="button" className="edit-button">Edit</button>
+                </Link>
+                <button type="button" className="delete-button" 
+                    onClick={()=> {
+                        this.props.dispatch(delSub(this.props.userId, idNumber))
+                        .then(()=> this.props.history.push('/dashboard'))
+                    }}>Delete</button>
+            </div>         
         )
     }
 }
