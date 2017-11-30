@@ -9,7 +9,7 @@ export default function SubTable(props) {
     let subscriptionBoxes = [];
 
     if (props.subscriptions) {
-        subscriptionData = props.subscriptions.map(sub => [sub.id, sub.subscription_name]);
+        subscriptionData = props.subscriptions.map(sub => [sub.id, sub.subscription_name, sub.category]);
     }
 
     subscriptionBoxes = subscriptionData.map((sub, index) => 
