@@ -45,7 +45,7 @@ export class Dashboard extends React.Component {
                 yearlyCost += yearly[i].price;
             }
         }
-        annualCost = (yearlyCost + Math.round((monthlyCost*12*100)/100));
+        annualCost = (yearlyCost + (Math.round(monthlyCost*12*100))/100);
         
         return (
             <div className="dashboard-container">
@@ -60,9 +60,11 @@ export class Dashboard extends React.Component {
                             <Circle 
                                 numberValue={"$" + monthlyCost}
                                 textValue="Monthly Total"/>
-                            <Circle 
-                                numberValue={"$" + annualCost}
-                                textValue="Yearly Total"/>
+                            <Link to={`/summary`}>
+                                <Circle 
+                                    numberValue={"$" + annualCost}
+                                    textValue="Yearly Total"/>
+                            </Link>
                         </div>
                         <Link to={`/subscription/add`}>ADD NEW SUBSCRIPTION</Link>
                         <SubTable subscriptions={this.props.subscriptions}/>

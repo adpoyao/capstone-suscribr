@@ -41,7 +41,7 @@ export class SubInfo extends React.Component {
                     }
                     </div>           
                 </div>
-                {/* //EDDIE'S CODE */}
+
                 <Link to={`/subscription/edit/${idNumber}`}>
                     <button type="button" className="edit-button">Edit</button>
                 </Link>

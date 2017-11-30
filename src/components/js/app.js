@@ -27,7 +27,7 @@ export default function App() {
               <Route exact path="/login" component={Login}/>
               <Route exact path="/dashboard" component={Dashboard}/>
               <Route exact path="/subscription/show/:sub" component={SubInfo}/>
-              <Route exact path="/subscription/add" component={SubAdd}/> */}
+              <Route exact path="/subscription/add" component={SubAdd}/>
               <Route exact path="/subscription/edit/:sub" component={SubEdit}/>
               <Route exact path="/summary" component={Summary}/>
             </Switch>
