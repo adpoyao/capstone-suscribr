@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {Field, reduxForm, focus} from 'redux-form';
 
 
@@ -36,6 +36,10 @@ export class SubEdit extends React.Component {
   }
 
   render() {
+    if (!this.props.loggedIn) {
+      return <Redirect to="/login" />
+    };
+
     let error;
     if (this.props.error) {
         error = (
@@ -66,7 +70,7 @@ export class SubEdit extends React.Component {
             placeholder="Subscription Name"
           />
           
-          <p className="icon">♫</p> 
+          <span className="icon">♫</span> 
           <label htmlFor="sub-category"></label>
           <Field name="category" component="select">
             <option value="music">Music</option>
@@ -76,7 +80,7 @@ export class SubEdit extends React.Component {
             <option value="other">Other</option>
           </Field>
           
-          <p className="sub-price">$</p>
+          <span className="icon">$</span>
           <label htmlFor="sub-price"></label>
           <Field
             type="number" 
@@ -84,7 +88,9 @@ export class SubEdit extends React.Component {
             component={Input}
             name="price" 
             placeholder="price" />
-          <p> / </p>
+          
+          <span className="divider"> / </span>
+          
           <label htmlFor="subfrequency"></label>
           <Field name="frequency" id="subfrequency" component="select">
             <option value="daily">Daily</option>
@@ -93,7 +99,7 @@ export class SubEdit extends React.Component {
             <option value="annually">Annually</option>
           </Field>
        
-          <p className="icon">*</p>
+          <span className="icon">*</span>
           <label htmlFor="sub-payment-type"></label>
           <Field 
             component={Input} 
@@ -111,7 +117,7 @@ export class SubEdit extends React.Component {
             name="ccNickname" 
             placeholder="Payment: Nickname" />
 
-          <p className="icon">*</p>
+          <span className="icon">*</span>
           <label htmlFor="sub-payment-date"></label>
           <Field 
             name="paymentDate"
@@ -149,7 +155,7 @@ const mapStateToProps = function(state, props){
   subscriptions: state.subscribr.subscriptions,
   loading: state.subscribr.loading,
   userId: state.auth.currentUser.id,
-  postId: state.auth.currentUser.postId,
+  userId: state.auth.currentUser ? state.auth.currentUser.id : 0,
   loggedIn: state.auth.currentUser !== null,
   
   //Initial Values
