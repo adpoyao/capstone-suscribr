@@ -1,0 +1,31 @@
+ul {
+    padding-left: 0px;
+}
+
+h4 {
+    margin: 10px 0 10px 0;
+}
+
+.about-contents {
+    margin: 0 auto;
+    width: 60%;
+    text-align: left;
+}
+
+.about-li {
+    list-style: none;
+}
+
+.button-toggle {
+    margin: 0;
+    padding-left: 0;
+    width: auto;
+    height: auto;
+    border: none;
+    font-size: 16px;
+    box-shadow: none;
+}
+
+.button-toggle:hover {
+    color: blue;
+}
