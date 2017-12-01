@@ -20,7 +20,7 @@ export class Home extends React.Component {
                     <button type="submit" name="login-button">Log In</button>
                 </form>
             </div>
-            <h1>🌶 Subscribr</h1>
+            <h1>⍚ Subscribr</h1>
             <p className="tagline">An app to keep track of all your subscriptions.</p>
         </div>
     )

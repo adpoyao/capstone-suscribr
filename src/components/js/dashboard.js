@@ -59,18 +59,21 @@ export class Dashboard extends React.Component {
                     <div className="circles-sub-table">
                         <div className="circles">
                             <Circle
+                                className='circle-1'
                                 numberValue={subs}
                                 textValue={subs === 1 ? "Subscription" : "Subscriptions"}/>
-                            <Circle 
+                            <Circle
+                                className='circle-2'
                                 numberValue={"$" + monthlyCost}
                                 textValue="Monthly Total"/>
                             <Link to={`/summary`}>
-                                <Circle 
+                                <Circle
+                                    className='circle-3' 
                                     numberValue={"$" + annualCost}
                                     textValue="Yearly Total"/>
                             </Link>
                         </div>
-                        <Link to={`/subscription/add`}>ADD NEW SUBSCRIPTION</Link>
+                        <Link to={`/subscription/add`}><div className="add-new"><span>Add New Subscription</span></div></Link>
                         <SubTable subscriptions={this.props.subscriptions}/>
                     </div>
              }</div>

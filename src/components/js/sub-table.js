@@ -13,14 +13,14 @@ export default function SubTable(props) {
     }
 
     subscriptionBoxes = subscriptionData.map((sub, index) => 
-    <div className={"sub-box sub-box-" + sub[0]} key={index}>
-        <span className="sub-text">
-            <Link to={`/subscription/show/` + sub[0]}>{sub[1]}</Link>
-        </span>
-    </div>)
+    <Link to={`/subscription/show/` + sub[0]}>
+        <div className={"sub-box sub-box-" + sub[0]} key={index}>
+            <span className="sub-button">{sub[1]}</span>
+        </div>
+    </Link>)
 
     return (
-        <div className="sub-table"> 
+        <div className="sub-table">
             {subscriptionBoxes.map(sub => sub)}
         </div>
     )

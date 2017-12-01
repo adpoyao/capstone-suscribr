@@ -50,7 +50,7 @@ export class SubAdd extends React.Component {
       <div className="sub-add-container">
         <Logout />
         <NavBar />
-        <Link to={`/dashboard`}>X</Link>
+        <Link to={`/dashboard`} className="x-out">✕</Link>
         <form
           className="sub-name"
           onSubmit={this.props.handleSubmit(values =>

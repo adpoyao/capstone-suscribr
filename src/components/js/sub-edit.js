@@ -53,7 +53,7 @@ export class SubEdit extends React.Component {
       <div className="sub-edit-container">
         <Logout />
         <NavBar />
-        <Link to={`/dashboard`}>X</Link>
+        <Link to={`/dashboard`} className="x-out">✕</Link>
         <form
           className="sub-edit"
           onSubmit={this.props.handleSubmit(values =>

@@ -52,7 +52,7 @@ export default class About extends React.Component {
                                 </section>
                             <li className="about-li about-2-li">
                                 <section className="about-section about-2">
-                                    <button type="button" className="button-toggle" onClick={() => this.toggleParagraph('show2')}><h4>Getting Started</h4></button>
+                                    <button type="button" className="button-toggle" onClick={() => this.toggleParagraph('show2')}><h4>› Getting Started</h4></button>
                                     <p className={`about-p about-2-p ${this.state.show2}`}>
                                         To get started with Subscribr, you'll need to click Sign Up and create an account. 
                                         The username and password you use to sign up will also allow 
@@ -63,7 +63,7 @@ export default class About extends React.Component {
                             </li>
                             <li className="about-li about-3-li">
                                 <section className="about-section about-3">
-                                <button type="button" className="button-toggle" onClick={() => this.toggleParagraph('show3')}><h4>Dashboard</h4></button>
+                                <button type="button" className="button-toggle" onClick={() => this.toggleParagraph('show3')}><h4>› Dashboard</h4></button>
                                     <p className={`about-p about-3-p ${this.state.show3}`}>
                                         Your Dashboard gives you a quick overview of your subscriptions, as well as your 
                                         monthly and yearly expenses. Towards the bottom of your Dashboard, you'll see your 
@@ -74,7 +74,7 @@ export default class About extends React.Component {
                             </li>
                             <li className="about-li about-4-li">
                                 <section className="about-section about-4">
-                                <button type="button" className="button-toggle" onClick={() => this.toggleParagraph('show4')}><h4>Adding a Subscription</h4></button>
+                                <button type="button" className="button-toggle" onClick={() => this.toggleParagraph('show4')}><h4>› Adding a Subscription</h4></button>
                                     <p className={`about-p about-4-p ${this.state.show4}`}>
                                         Adding a subscription is easy! From your Dashboard, just click on the button labeled 
                                         Add Subscription. The button will take you to a form where you can input all the data 
@@ -90,7 +90,7 @@ export default class About extends React.Component {
                             </li>
                             <li className="about-li about-5-li">
                                 <section className="about-section about-5">
-                                <button type="button" className="button-toggle" onClick={() => this.toggleParagraph('show5')}><h4>Viewing {'&'} Modifying a Subscription</h4></button>
+                                <button type="button" className="button-toggle" onClick={() => this.toggleParagraph('show5')}><h4>› Viewing {'&'} Modifying a Subscription</h4></button>
                                     <p className={`about-p about-5-p ${this.state.show5}`}>
                                         The labeled buttons towards the bottom of your Dashboard are links to your individual 
                                         subscriptions. Click on one to see what it is, what payment method you're using, when you're 
@@ -117,7 +117,7 @@ export default class About extends React.Component {
                             </li>
                             <li className="about-li about-6-li">
                                 <section className={`about-p about-6-p ${this.state.show6}`}>
-                                <button type="button" className="button-toggle" onClick={() => this.toggleParagraph('show6')}><h4>Summary</h4></button>
+                                <button type="button" className="button-toggle" onClick={() => this.toggleParagraph('show6')}><h4>› Summary</h4></button>
                                     <p className="about-p about-6-p">
                                         To see a summary of your subscriptions and costs, hover over the rightmost circle and click. You'll be 
                                         redirected to your Monthly Breakdown, which divides your subscriptions into different categories. 

@@ -12,7 +12,7 @@ export function Login (props) {
     }
     return(
         <div className="signup">
-            <h2>🌶 Subscribr</h2>
+            <h2>⍚ Subscribr</h2>
             <LoginForm />
         </div>
     )
