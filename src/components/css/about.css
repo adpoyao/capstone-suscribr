@@ -10,6 +10,8 @@ h4 {
     margin: 0 auto;
     width: 60%;
     text-align: left;
+    line-height: 25px;
+    font-size: 0.9em
 }
 
 .about-li {
@@ -24,6 +26,7 @@ h4 {
     border: none;
     font-size: 16px;
     box-shadow: none;
+    background-color: none;
 }
 
 .button-toggle > h4:hover {

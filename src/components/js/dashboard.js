@@ -73,7 +73,7 @@ export class Dashboard extends React.Component {
                                     textValue="Yearly Total"/>
                             </Link>
                         </div>
-                        <Link to={`/subscription/add`}><div className="add-new"><span>Add New Subscription</span></div></Link>
+                        <Link to={`/subscription/add`}><div className="add-new"><span>+New Subscription</span></div></Link>
                         <SubTable subscriptions={this.props.subscriptions}/>
                     </div>
              }</div>

@@ -7,15 +7,10 @@ label {
     display: block;
 }
 
-input {
-    padding: 5px 5px 5px 5px;
-    margin-top: 20px;
-    font-size: 20px;
-    width: 60%;
-    border: solid 1px gray;
-    border-radius: 8px;
-}
-
 .submit-signup {
     margin-top: 20px;
+}
+
+fieldset {
+    border: none;
 }

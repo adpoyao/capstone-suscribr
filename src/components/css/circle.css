@@ -14,14 +14,15 @@ span {
     transition: 250ms;
     position: relative;
     display: inline-block;
-    width: 250px;
-    height: 250px;
+    width: 230px;
+    height: 230px;
     border-radius: 50%;
     border: solid 1px black;
 }
 
 .circle-container:hover {
-    top: -15px;
+    top: -10px;
+    /* border: 2px rgba(255, 255, 255, 0.623) solid */
 }
 
 .circle-1:hover {
@@ -29,21 +30,24 @@ span {
 }
 
 .circle-1 {
-    background-color: #124E78;
-    color: #BFEBFF;
+    background-color: rgb(34, 100, 145);
+    color: white;
     z-index: 1;
+    border: none;
  }
 
 .circle-2 {
-    background-color: #F2BB05;
-    color: #FFFFAB;
+    background-color: rgb(242, 179, 5);
+    color: white;
     z-index: 2;
     margin-left: -25px; 
+    border: none;
 }
 
 .circle-3 {
-    background-color: #C83137;
-    color: #FFC0B4;
+    background-color: rgb(223, 65, 73);
+    color: white;
     z-index: 3;
     margin-left: -25px;
+    border: none
  }

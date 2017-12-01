@@ -5,17 +5,31 @@
 }
 
 .loading {
-    font-size: 50px;
+    font-size: 46px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
 .add-new {
-    margin-top: 20px;
+    margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
     width: 225px;
     height: 36px;
-    border-radius: 8px;
-    border: solid 1px black;
+    border-radius: 30px;
+    /* border: solid 3px rgb(148, 75, 75); */
+    background-color: #e9b64f;
+    color: white;
+    transition: all 0.3s ease;    
+}
+
+.add-new:hover {
+    color: #c83137;
+    transition: all 0.3s ease;
+    background-color: #f8ab10;
 }
 
 .add-new > span {

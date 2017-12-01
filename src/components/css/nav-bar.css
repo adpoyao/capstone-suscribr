@@ -3,7 +3,6 @@ h2 {
 }
 
 .links-nav {
-    margin-top: 0;
     margin: 0 auto;
 }
 
@@ -21,3 +20,7 @@ h2 {
 .links-li {
     margin-left: 20px;
 }
+
+a:hover {
+    color: #c83137;
+  }
