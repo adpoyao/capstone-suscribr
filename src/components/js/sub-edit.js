@@ -139,7 +139,8 @@ export class SubEdit extends React.Component {
             id="subcheckbox"
             className="sub-checkbox-field" 
             defaultChecked />
-          <button disabled={this.props.pristine || this.props.submitting}>
+
+          <button className="edit-sub" disabled={this.props.pristine || this.props.submitting}>
               Save
           </button>  
 

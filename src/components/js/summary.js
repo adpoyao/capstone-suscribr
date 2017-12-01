@@ -38,7 +38,7 @@ export class Summary extends React.Component {
     ]
   
     for (let i = 0; i < subs.length; i++) {
-      //NB: categorizedSubs indeces determine the catgory
+      //NB: categorizedSubs indexes determine the catgory
       switch (subs[i].category) {
         case 'music':
           this.sortSubs(categorizedSubs, 0, i, subs);
@@ -87,16 +87,18 @@ export class Summary extends React.Component {
         </li>)
 
     return (
-      <div className="summary-container">
+      <div>
         <Logout />
         <NavBar />
         <Link to={`/dashboard`} className="x-out">✕</Link>
-        <h3>Monthly Breakdown</h3>
-        <div className="summary-contents">
-          <ul>
-            {contentMap}
-          </ul>
-          <div className="summary-total">TOTAL: <div className="summary-total-amount">${totalSum}/month</div></div>
+        <div className="summary-container">
+          <h3 className="summary-breakdown">Monthly Breakdown</h3>
+          <div className="summary-contents">
+            <ul>
+              {contentMap}
+            </ul>
+            <div className="summary-total">TOTAL: <div className="summary-total-amount">${totalSum}/month</div></div>
+          </div>
         </div>
       </div>
     )

@@ -1,5 +1,5 @@
 .category-li {
-    list-style: none;
+    list-style-type: none;
 }
 
 .category-div > h4 {
@@ -22,4 +22,90 @@
 
 .x-out {
     text-align: right;
+}
+
+/* .summary-container {
+    margin: 0 auto;
+    background-color: #facd78;
+    border: 3px solid rgb(242, 179, 5);
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+    padding: 30px 40px;
+    width: 70%;
+    border-radius: 10px
+} */
+
+.summary-container {
+    margin: 0 auto;
+    width: 70%
+}
+
+.summary-breakdown {
+    text-align: center;
+    background: rgb(223, 65, 73);
+    color: white;    
+    font-family: 'Roboto';
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.summary-contents {
+    width: 100%;
+}
+
+.summary-contents ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.category-li {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    padding: 5px;
+    width: 300px; 
+    height: 40px;
+    vertical-align: middle;
+    padding: 10px 0; 
+    margin-bottom: 10px;
+    color: #ffffff;
+    border: 3px solid white;
+    background-color: #e9b64f;
+    text-align: center;
+    display: flex;
+    align-items: space-around;
+}
+
+.music-li {
+    background-color: #c83137
+}
+
+.entertainment-li {
+    background-color: #124e78;
+}
+
+.lifestyle-li {
+    background-color: #87c38f;
+}
+
+.work-li {
+    background-color: #499176;
+}
+
+.other-li {
+    background-color: rgb(214, 120, 103);
+    align-self: flex-start;
+}
+
+.category-ul {
+    background-color:rgb(233, 182, 79);
+    border: 3px solid white;   
+    display: block;
+    width: 300px;
+    list-style-type: none;
 }

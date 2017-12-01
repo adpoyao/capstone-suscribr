@@ -4,7 +4,7 @@
     right: 0
 }
 
-button {
+.log-out {
     position:relative;
     vertical-align: middle;
     color: #ffffff;
@@ -19,7 +19,7 @@ button {
     background-color: #124e78;   
 }
 
-button:hover {
+.log-out:hover {
     color: #FFF;
     background-color: #dda534
 }

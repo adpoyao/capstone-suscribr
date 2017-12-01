@@ -18,7 +18,7 @@ export class Logout extends React.Component {
     render() {
         return (
         <div className="logout-container">
-            <Link to="/"><button onClick={() => this.logOut()}>Log out</button></Link>
+            <Link to="/"><button className="log-out" onClick={() => this.logOut()}>Log out</button></Link>
         </div>
         )
     }

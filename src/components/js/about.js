@@ -131,7 +131,7 @@ export default class About extends React.Component {
                             </li>
                             <hr></hr>
                             <section className="about-section about-7">
-                                <h4>Dev Stuff</h4>
+                                <h4 className="dev-stuff">Dev Stuff</h4>
                                 <p className="about-p about-7-p">
                                     Subscribr was built over five days by two web development students, Eddie Yao and Andy Gaines, to 
                                     demonstrate facility with React and Redux, including React Router and Redux Form. The Node.js backend 

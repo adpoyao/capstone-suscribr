@@ -1,3 +1,26 @@
+.edit-button,
+.delete-button {
+  position:relative;
+  vertical-align: middle;
+  color: #ffffff;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  transition: 0.5s;
+  padding: 0 20px;
+  cursor: pointer;
+  transition:0.5s;
+  background-color: #124e78;   
+  }
+  
+  .edit-button:hover,
+  .delete-button:hover {
+      color: #FFF;
+      background-color: #dda534
+  }
+
+
 .sub-info {
     width: 60%;
     margin: 0 auto;

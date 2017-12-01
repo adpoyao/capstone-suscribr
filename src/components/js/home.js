@@ -14,10 +14,10 @@ export class Home extends React.Component {
         <div className="home-container">
             <div className="signup-login-container">
                 <form action="/signup">
-                    <button type="submit" name="signup-button">Sign Up</button>
+                    <button className="home-sign-up" type="submit" name="signup-button">Sign Up</button>
                 </form>
                 <form action="/login">
-                    <button type="submit" name="login-button">Log In</button>
+                    <button className="home-log-in" type="submit" name="login-button">Log In</button>
                 </form>
             </div>
             <h1>⍚ Subscribr</h1>
