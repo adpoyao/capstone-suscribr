@@ -30,13 +30,13 @@ export class Summary extends React.Component {
     const subs = this.props.subscriptions;
 
     const categorizedSubs = [
-      {category: 'music', subList: [], total: 0},
-      {category: 'entertainment', subList: [], total: 0},
-      {category: 'lifestyle', subList: [], total: 0},
-      {category: 'work', subList: [], total: 0},
-      {category: 'other', subList: [], total: 0}
+      {category: 'music', emoji: '🎵', subList: [], total: 0},
+      {category: 'entertainment', emoji: '🎭', subList: [], total: 0},
+      {category: 'lifestyle', emoji: '🏖', subList: [], total: 0},
+      {category: 'work', emoji: '💼️', subList: [], total: 0},
+      {category: 'other', emoji: '🎁', subList: [], total: 0}
     ]
-
+  
     for (let i = 0; i < subs.length; i++) {
       //NB: categorizedSubs indeces determine the catgory
       switch (subs[i].category) {
@@ -72,16 +72,15 @@ export class Summary extends React.Component {
       console.log(totalSum);
 
       const populatedSubLists = categorizedSubs.filter(sub => sub.subList.length > 0);
-      
       const contentMap = populatedSubLists.map((each, index) => 
         <li className={`category-li ${each.category}-li`} key={index}>
           <div className={`category-div ${each.category}-div`}>
-            <h4>{each.category}</h4>
+            <h4><span className="bigger">{each.emoji}</span>  {each.category}</h4>
             <ul className={`category-ul ${each.category}-ul`}>
               {each.subList.map((sub, index) => 
-              <li key={index}>
+              <li className="sub-li" key={index}>
                 <div className="sub-name">{sub.subscription_name}</div>
-                <div className="sub-price">{sub.price}</div>
+                <div className="sub-price">${sub.price}</div>
               </li>)}
             </ul>
           </div>
@@ -91,14 +90,15 @@ export class Summary extends React.Component {
       <div className="summary-container">
         <Logout />
         <NavBar />
-        <Link to={`/dashboard`} className="x-out">X</Link>
+        <Link to={`/dashboard`} className="x-out">✕</Link>
         <h3>Monthly Breakdown</h3>
-        <ul>
-          {contentMap}
-        </ul>
-        <div className="summary-total">TOTAL: <div className="summary-total-amount">{totalSum}/month</div></div>
+        <div className="summary-contents">
+          <ul>
+            {contentMap}
+          </ul>
+          <div className="summary-total">TOTAL: <div className="summary-total-amount">${totalSum}/month</div></div>
+        </div>
       </div>
-
     )
   }
 }

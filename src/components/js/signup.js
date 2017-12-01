@@ -13,7 +13,7 @@ export function Signup(props) {
     }
     return(
         <div className="signup">
-            <h2>🌶 Subscribr</h2>
+            <h2>⍚ Subscribr</h2>
             <SignupForm />
             {/* <SignupSuccess /> */}
         </div>

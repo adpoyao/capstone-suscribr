@@ -26,7 +26,6 @@ h4 {
     box-shadow: none;
 }
 
-.button-toggle:hover {
-    text-decoration: underline;
-    color: rgb(200,49,55);
+.button-toggle > h4:hover {
+    color: #C83137;
 }

@@ -4,15 +4,16 @@
 
 a {
   text-decoration: none;
-  color: black;
+  color: rgb(13, 56, 85);
 }
 
 a:hover {
-  color: blue;
+  color: rgb(25, 113, 168);
 }
 
 body {
-  /* background-color: #C492B1; */
+  font-family: 'Roboto';
+  background-color: #87C38F;
   width: 960px;
   margin: 25px auto;
 }
@@ -22,7 +23,7 @@ h2 {
 }
 
 button {
-  /* background-color: #C492B1; */
+  background-color: #87C38F;
   font-size: 20px;
   border-radius: 8px;
 }
@@ -34,4 +35,17 @@ button.active {
   outline: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.x-out {
+  color: #C83137;
+}
+
+.x-out:hover {
+  color: #FFC0B4;
+}
+
+h2, h3, h4 {
+  font-family: 'Dosis';
+  color: rgb(13, 56, 85);
 }

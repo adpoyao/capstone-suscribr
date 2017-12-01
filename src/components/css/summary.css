@@ -1,0 +1,25 @@
+.category-li {
+    list-style: none;
+}
+
+.category-div > h4 {
+    margin-top: 20px;
+}
+
+.summary-contents {
+    margin: 0 auto;
+    width: 60%;
+    text-align: left;
+}
+
+.sub-name {
+    font-weight: bold;
+}
+
+.bigger {
+    font-size: 24px;
+}
+
+.x-out {
+    text-align: right;
+}
