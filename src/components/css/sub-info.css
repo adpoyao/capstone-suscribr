@@ -14,8 +14,8 @@
   background-color: #124e78;   
   }
   
-  .edit-button:hover,
-  .delete-button:hover {
+.edit-button:hover,
+.delete-button:hover {
       color: #FFF;
       background-color: #dda534
   }
