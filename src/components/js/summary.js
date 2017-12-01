@@ -73,18 +73,21 @@ export class Summary extends React.Component {
 
       const populatedSubLists = categorizedSubs.filter(sub => sub.subList.length > 0);
       const contentMap = populatedSubLists.map((each, index) => 
-        <li className={`category-li ${each.category}-li`} key={index}>
-          <div className={`category-div ${each.category}-div`}>
-            <h4><span className="bigger">{each.emoji}</span>  {each.category}</h4>
-            <ul className={`category-ul ${each.category}-ul`}>
-              {each.subList.map((sub, index) => 
-              <li className="sub-li" key={index}>
-                <div className="sub-name">{sub.subscription_name}</div>
-                <div className="sub-price">${sub.price}</div>
-              </li>)}
-            </ul>
-          </div>
-        </li>)
+        <div className='category-container'>  
+          <li className={`category-li ${each.category}-li`} key={index}>
+            <div className={`category-div ${each.category}-div`}>
+              <h5><span className="bigger">{each.emoji}</span>  {each.category}</h5>
+              <ul className={`category-ul ${each.category}-ul`}>
+                {each.subList.map((sub, index) => 
+                <li className="sub-li" key={index}>
+                  <div className="sub-name">{sub.subscription_name}</div>
+                  <div className="sub-price">${sub.price}</div>
+                </li>)}
+              </ul>
+              <div className={`category-total ${each.category}-total`}>TOTAL: ${each.total}</div>
+            </div>
+          </li>
+        </div>)
 
     return (
       <div>
@@ -97,7 +100,7 @@ export class Summary extends React.Component {
             <ul>
               {contentMap}
             </ul>
-            <div className="summary-total">TOTAL: <div className="summary-total-amount">${totalSum}/month</div></div>
+            <div className="summary-total">TOTAL: <div className="summary-total-amount"> ${totalSum}/month</div></div>
           </div>
         </div>
       </div>

@@ -79,8 +79,8 @@ a {
   }
   
   h1, h2, h3, h4 {
-    /* font-family: 'Dosis'; */
-    font-family: 'Roboto';       
+    font-family: 'Dosis';
+    /* font-family: 'Roboto';        */
     color: rgb(13, 56, 85);
   }
 

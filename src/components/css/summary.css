@@ -1,7 +1,3 @@
-.category-li {
-    list-style-type: none;
-}
-
 .category-div > h4 {
     margin-top: 20px;
 }
@@ -17,23 +13,19 @@
 }
 
 .bigger {
-    font-size: 24px;
+    font-size: 28px;
+    display: flex;
+    justify-content: center
 }
 
 .x-out {
     text-align: right;
 }
 
-/* .summary-container {
-    margin: 0 auto;
-    background-color: #facd78;
-    border: 3px solid rgb(242, 179, 5);
-    border-right-width: 10px;
-    border-bottom-width: 10px;
-    padding: 30px 40px;
-    width: 70%;
-    border-radius: 10px
-} */
+.sub-name,
+.sub-price {
+    font-size: 0.9em
+}
 
 .summary-container {
     margin: 0 auto;
@@ -54,58 +46,102 @@
     align-items: center;
 }
 
-.summary-contents {
-    width: 100%;
+h5 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em
 }
 
-.summary-contents ul {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+.summary-contents {
+    width: 500px;
+    margin: 0 auto
+}
+
+.category-container {
+    list-style-type: none;
+    
 }
 
 .category-li {
-    margin-bottom: 20px;
-    margin-right: 10px;
     padding: 5px;
-    width: 300px; 
-    height: 40px;
-    vertical-align: middle;
-    padding: 10px 0; 
-    margin-bottom: 10px;
     color: #ffffff;
     border: 3px solid white;
-    background-color: #e9b64f;
     text-align: center;
     display: flex;
-    align-items: space-around;
+    justify-content: center;
+    margin: 10px 0
 }
 
-.music-li {
-    background-color: #c83137
+.sub-li {
+    align-self: center;
 }
 
-.entertainment-li {
-    background-color: #124e78;
-}
+        .music-li {
+            background-color: #c83137;
+        }
 
-.lifestyle-li {
-    background-color: #87c38f;
-}
+        .entertainment-li {
+            background-color: #124e78;
+        }
 
-.work-li {
-    background-color: #499176;
-}
+        .lifestyle-li {
+            background-color: #87c38f;
+        }
 
-.other-li {
-    background-color: rgb(214, 120, 103);
-    align-self: flex-start;
-}
+        .work-li {
+            background-color: #499176;
+        }
+
+        .other-li {
+            background-color: rgb(214, 120, 103);
+        }
 
 .category-ul {
-    background-color:rgb(233, 182, 79);
-    border: 3px solid white;   
-    display: block;
-    width: 300px;
     list-style-type: none;
+    align-self: center;
+
 }
+
+.sub-li {
+    margin: 10px 0 5px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}
+
+.summary-total{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500;
+    height: 60px;
+    border-radius: 40px;
+    color: #c83137;
+    font-size: 1.2em;
+    background-color: #f8ab10;
+    transition: all 0.3s ease;   
+}
+
+.category-total {
+    padding-top: 10px;
+}
+
+        .music-total {
+            color: #6e0308;
+        }
+
+        .entertainment-total {
+            color: #051d2e;
+        }
+
+        .lifestyle-total {
+            color: #447a4b;
+        }
+
+        .work-total {
+            color: #226149;
+        }
+
+        .other-total {
+            color: rgb(177, 48, 26);
+        }
