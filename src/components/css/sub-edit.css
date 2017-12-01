@@ -1,13 +1,21 @@
-.sub-edit-container > form {
+.sub-edit {
     text-align: left;
 }
 
-.sub-edit-container > input, select {
+.sub-edit > input {
     position: relative;
     left: 80px;
     top: -22px;
     width: 150px;
 }
+
+.sub-edit > select {
+    position: relative;
+    left: 80px;
+    top: -22px;
+    width: 150px;
+}
+
 
 .sub-edit-container > .x-out {
     position: absolute;
