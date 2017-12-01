@@ -67,13 +67,15 @@ a {
             box-shadow: none;
   }
   
-  .x-out {
+  .x-out,
+  .x-out2 {
     color: #C83137;
     font-size: 1.5em;
     transition: all 0.3s ease;       
   }
   
-  .x-out:hover {
+  .x-out:hover,
+  .x-out2:hover {
     color: rgb(121, 0, 8);
     transition: all 0.3s ease;    
   }

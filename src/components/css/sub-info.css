@@ -22,8 +22,18 @@
 
 
 .sub-info {
-    width: 60%;
-    margin: 0 auto;
+    background-color: #facd78;
+    border: 3px solid rgb(242, 179, 5);
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+    padding: 30px 40px 10px 40px;
+    width: 70%;
+    border-radius: 10px;
+    margin: 0 auto
+}
+
+h3 {
+    margin: 0;
 }
 
 .ul-container {
@@ -47,8 +57,8 @@
 
 .sub-info-container > .x-out {
     position: absolute;
-    right: 35%;
-    top: 188px;
+    right: 100px;
+    top: 230px;
 }
 
 .icon {

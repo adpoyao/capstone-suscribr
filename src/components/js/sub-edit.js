@@ -62,17 +62,17 @@ export class SubEdit extends React.Component {
         
         {error}
 
-        <label htmlFor="sub-name"></label>
-          <Field
+        <label className="label" htmlFor="sub-name">Subscription Name</label>
+        <Field
             component={Input}
             type="text" 
             name="subscriptionName" 
             placeholder="Subscription Name"
             className="sub-name-field"
           />
-          <hr></hr>
-          <span className="icon"></span> 
-          <label htmlFor="sub-category">Category *</label>
+          {/* <hr></hr> */}
+          {/* <span className="icon"></span>  */}
+          <label className="label" htmlFor="sub-category">Category *</label>
           <Field name="category" component="select" className="sub-category-field">
             <option value="music">Music</option>
             <option value="entertainment">Entertainment</option>
@@ -80,9 +80,9 @@ export class SubEdit extends React.Component {
             <option value="lifestyle">Lifestyle</option>
             <option value="other">Other</option>
           </Field>
-          <hr></hr>
+          {/* <hr></hr> */}
           <span className="icon"></span>
-          <label htmlFor="sub-price">Price *</label>
+          <label className="label" htmlFor="sub-price">Price *</label>
           <Field
             type="number" 
             step="0.01" 
@@ -100,9 +100,9 @@ export class SubEdit extends React.Component {
             <option value="monthly">Monthly</option>
             <option value="annually">Annually</option>
           </Field>
-          <hr></hr>
+          {/* <hr></hr> */}
           <span className="icon"></span>
-          <label htmlFor="sub-payment-type">Card</label>
+          <label className="label" htmlFor="sub-payment-type">Card</label>
           <Field 
             component={Input} 
             name="ccType" 
@@ -121,15 +121,15 @@ export class SubEdit extends React.Component {
             name="ccNickname" 
             placeholder="Payment: Nickname"
             className="sub-payment-nickname-field" />
-          <hr></hr>
-          <span className="icon">Date *</span>
-          <label htmlFor="sub-payment-date"></label>
+          {/* <hr></hr> */}
+          {/* <span className="label" className="icon"></span> */}
+          <label htmlFor="sub-payment-date">Date *</label>
           <Field 
             name="paymentDate"
             component={Input}
             type="date"
             className="sub-payment-date-field"/>
-          <hr></hr>
+          {/* <hr></hr> */}
           <label htmlFor="subcheckbox">Active? *</label>
           <Field 
             component={Input}

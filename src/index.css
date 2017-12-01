@@ -9,14 +9,15 @@ select {
   font-size: 1.2em;
   height: 30px;
   margin-bottom: 10px;
-  display:table-cell; 
+  /* display:flex; */
+  /* align-content: center; */
   width: 300px;
   box-shadow: none;
   text-shadow: none;
   border:none;
   border-radius: 2px;  
   box-shadow:none;
-  padding: 5px 0px 5px 5px;  
+  padding: 5px 0px 5px 5px;
 }
 
 button {
