@@ -21,12 +21,13 @@ export class SubInfo extends React.Component {
             return <Redirect to="/login" />
         };
 
-        let subscriptions = this.props.subscriptions;
-        let idNumber = this.props.match.params.sub;
-        let sub = subscriptions.find(sub => sub.id === Number(idNumber));
-        
-        let month = new Date(sub.due_date).getMonth();
-        let date = new Date(sub.due_date).getDate();
+        const subscriptions = this.props.subscriptions;
+        const idNumber = this.props.match.params.sub;
+        const sub = subscriptions.find(sub => sub.id === Number(idNumber));
+        let status;
+        sub.active === true ? status = 'Active Status' : status = 'Not Active';
+
+        const subDate = new Date(sub.due_date).toISOString().slice(0,10);
 
         return (
             <div className="sub-info-container">
@@ -42,8 +43,10 @@ export class SubInfo extends React.Component {
                                 <li><span className="icon">♫</span> {sub.category}</li>
                                 <li><span className="icon">$</span> {sub.price}/{sub.frequency}</li>
                                 <li><span className="icon">*</span> {sub.cc_type} {sub.cc_digits} {sub.cc_nickname}</li>
-                                <li><span className="icon">*</span> Subscribed on: {month} / {date} </li>
-                                {/* <li><span className="icon">*</span> {sub.active = true ? `Active Subscription` : `Not Active`} </li> */}
+                                <li><span className="icon">*</span> Subscribed on: {subDate} </li>
+                                <li><span className="icon">*</span>
+                                    {status}
+                                </li>
                             </ul>
                         </div>
                     }
@@ -56,7 +59,7 @@ export class SubInfo extends React.Component {
                 <button type="button" className="delete-button" 
                     onClick={()=> {
                         this.props.dispatch(delSub(this.props.userId, idNumber))
-                        .then(()=> this.props.history.push('/'))
+                        .then(()=> this.props.history.push('/dashboard'))
                     }}>Delete</button>
             </div>         
         )
