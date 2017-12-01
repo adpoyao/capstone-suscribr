@@ -37,7 +37,7 @@ export default class About extends React.Component {
                 <div className="about-container">
                     <Logout />
                     <NavBar />
-                    <Link to={`/dashboard`} className="x-out">X</Link>
+                    <Link to={`/dashboard`} className="x-out">×</Link>
                     <div className="about-contents">
                     <h3>About Subscribr</h3>
                         <ul className="about-ul">
