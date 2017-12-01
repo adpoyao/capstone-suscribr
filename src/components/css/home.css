@@ -15,5 +15,61 @@ h1 {
 }
 
 .tagline {
+    color: rgb(13, 56, 85);
     font-size: 36px;
 }
+
+a {
+    text-decoration: none;
+    color: rgb(13, 56, 85);
+  }
+  
+  a:hover {
+    color: rgb(25, 113, 168);
+  }
+  
+  body {
+    font-family: 'Roboto';
+    background-color: #87C38F;
+    width: 960px;
+    margin: 25px auto;
+  }
+  
+  h2 {
+    font-size: 42px;
+  }
+  
+  button {
+    font-family: 'Roboto';
+    background-color: rgb(250, 206, 76);
+    font-size: 20px; 
+    color: rgb(61, 47, 0);
+    border: 1px solid #F2BB05;
+    border-radius: 8px;
+  }
+  
+  button:active,
+  button:focus,
+  button.active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  
+  .x-out {
+    color: #C83137;
+  }
+  
+  .x-out:hover {
+    color: #FFC0B4;
+  }
+  
+  h1, h2, h3, h4 {
+    font-family: 'Dosis';
+    color: rgb(13, 56, 85);
+  }
+
+  fieldset {
+    border: solid 1px rgb(13, 56, 85);
+  }

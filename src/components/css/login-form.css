@@ -1,3 +1,8 @@
 .submit-login {
     margin-top: 20px;
 }
+
+fieldset > button {
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }

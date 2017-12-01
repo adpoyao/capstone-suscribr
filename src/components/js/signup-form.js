@@ -46,16 +46,16 @@ export class SignupForm extends React.Component {
                 <fieldset>
                     <legend>Sign Up</legend>
                     
-                    <label htmlFor="firstName" >First Name</label>
+                    <label htmlFor="firstName" ></label>
                     <Field component={Input} type="text" name="firstName" id="firstName" placeholder="First Name" />
                     
-                    <label htmlFor="lastName">Last Name</label>
+                    <label htmlFor="lastName"></label>
                     <Field component={Input} type="text" name="lastName" id="lastName" placeholder="Last Name" />
                     
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email"></label>
                     <Field component={Input} type="text" name="email" id="email" placeholder="Email Address" validate={[email]}/>
 
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username"></label>
                     <Field
                         component={Input}
                         type="text"
@@ -65,7 +65,7 @@ export class SignupForm extends React.Component {
                         validate={[required, nonEmpty, isTrimmed]}                        
                         />
                     
-                    <label htmlFor="password">Password</label>              
+                    <label htmlFor="password"></label>              
                     <Field
                         component={Input}
                         type="password"
@@ -75,7 +75,7 @@ export class SignupForm extends React.Component {
                         validate={[required, length({min: 6, max: 72}), isTrimmed]}
                         />
                     
-                    <label htmlFor="confirm-password">Confirm password</label>
+                    <label htmlFor="confirm-password"></label>
                     <Field
                         component={Input}
                         type="password"
