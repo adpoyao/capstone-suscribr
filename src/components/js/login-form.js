@@ -51,7 +51,7 @@ export class LoginForm extends React.Component {
                         placeholder="password"
                         validate={[required, nonEmpty]}
                     />
-                    <button disabled={this.props.pristine || this.props.submitting}>
+                    <button className="log-in" disabled={this.props.pristine || this.props.submitting}>
                         Log in
                     </button>                
                 </fieldset>

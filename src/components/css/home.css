@@ -79,10 +79,33 @@ a {
   }
   
   h1, h2, h3, h4 {
-    font-family: 'Dosis';
+    /* font-family: 'Dosis'; */
+    font-family: 'Roboto';       
     color: rgb(13, 56, 85);
   }
 
   fieldset {
     border: solid 1px rgb(13, 56, 85);
   }
+
+  .home-sign-up,
+  .home-log-in {
+    position:relative;
+    vertical-align: middle;
+    color: #ffffff;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    transition: 0.5s;
+    padding: 0 20px;
+    cursor: pointer;
+    transition:0.5s;
+    background-color: #124e78;   
+    }
+    
+  .home-sign-up:hover,
+  .home-log-in:hover {
+    color: #FFF;
+    background-color: #dda534
+}

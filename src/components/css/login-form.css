@@ -6,3 +6,24 @@ fieldset > button {
     margin-top: 25px;
     margin-bottom: 15px;
   }
+
+.log-in {
+position:relative;
+vertical-align: middle;
+color: #ffffff;
+display: inline-block;
+height: 50px;
+line-height: 50px;
+text-align: center;
+transition: 0.5s;
+padding: 0 20px;
+cursor: pointer;
+transition:0.5s;
+background-color: #124e78;   
+width: 305px;
+}
+
+.log-in:hover {
+    color: #FFF;
+    background-color: #dda534
+}
