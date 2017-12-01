@@ -52,7 +52,7 @@ export class SubAdd extends React.Component {
         <NavBar />
         <Link to={`/dashboard`} className="x-out">✕</Link>
         <form
-          className="sub-name"
+          className="sub-form"
           onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values)
           )}>
@@ -67,7 +67,7 @@ export class SubAdd extends React.Component {
             placeholder="Subscription Name"
           />
           
-          <span className="icon">♫</span> 
+          <span className="icon"></span> 
           <label htmlFor="sub-category"></label>
           <Field name="category" component="select">
             <option value="music">Music</option>
@@ -77,7 +77,7 @@ export class SubAdd extends React.Component {
             <option value="other">Other</option>
           </Field>
           
-          <span className="icon">$</span>
+          <span className="icon"></span>
           <label htmlFor="sub-price"></label>
           <Field
             type="number" 
@@ -86,7 +86,7 @@ export class SubAdd extends React.Component {
             name="price" 
             placeholder="price" />
 
-          <span className="divider"> / </span>
+          <span className="divider"></span>
           
           <label htmlFor="subfrequency"></label>
           <Field name="frequency" id="subfrequency" component="select">
@@ -96,7 +96,7 @@ export class SubAdd extends React.Component {
             <option value="annually">Annually</option>
           </Field>
        
-          <span className="icon">*</span>
+          <span className="icon"></span>
           <label htmlFor="sub-payment-type"></label>
           <Field 
             component={Input} 
@@ -114,7 +114,7 @@ export class SubAdd extends React.Component {
             name="ccNickname" 
             placeholder="Payment: Nickname" />
 
-          <span className="icon">*</span>
+          <span className="icon"></span>
           <label htmlFor="sub-payment-date"></label>
           <Field 
             name="paymentDate"
@@ -130,8 +130,8 @@ export class SubAdd extends React.Component {
             defaultChecked />
           <label htmlFor="subcheckbox">Active?</label>
 
-          <button disabled={this.props.pristine || this.props.submitting}>
-              ADD
+          <button className="add-button" disabled={this.props.pristine || this.props.submitting}>
+              Add
           </button>  
 
         </form>
