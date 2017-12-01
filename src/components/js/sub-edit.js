@@ -30,7 +30,7 @@ export class SubEdit extends React.Component {
       active: values.active,
       userId: this.props.userId
     }
-    console.log(editedSub);
+    console.log("===editedSub", editedSub);
     this.props.dispatch(editSub(editedSub, this.props.match.params.sub))
     .then(()=> this.props.history.push(`/subscription/show/${this.props.match.params.sub}`))  
   }
@@ -143,14 +143,13 @@ export class SubEdit extends React.Component {
   }
 }
 
-
-
 const mapStateToProps = function(state, props){
 
-  let idNumber = Number(props.match.params.sub);
-  let subscriptionList = state.subscribr.subscriptions
-  let subscription = subscriptionList.find(sub => {return sub.id === idNumber});
-
+  const idNumber = Number(props.match.params.sub);
+  const subscriptionList = state.subscribr.subscriptions
+  const subscription = subscriptionList.find(sub => {return sub.id === idNumber});
+  const subDate = new Date(subscription['due_date']).toISOString().slice(0,10);
+  
   return {
   subscriptions: state.subscribr.subscriptions,
   loading: state.subscribr.loading,
@@ -167,7 +166,7 @@ const mapStateToProps = function(state, props){
       ccType: subscription['cc_type'],
       ccDigits: subscription['cc_digits'],
       ccNickname: subscription['cc_nickname'],
-      paymentDate: subscription['due_date'], 
+      paymentDate: subDate,    
       active: subscription.active
   }
 

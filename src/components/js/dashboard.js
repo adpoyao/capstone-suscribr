@@ -21,7 +21,7 @@ export class Dashboard extends React.Component {
 
     render() {
         if (!this.props.loggedIn) {
-            return <Redirect to="/login" />
+            return <span className="loading">Loading . . .</span>
         };
 
         let monthly = [];

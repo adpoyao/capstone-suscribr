@@ -1,9 +1,12 @@
 import React from 'react';
 import '../css/home.css';
+
+import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom'
 
-export default function Home(props) {
-    if (props.loggedIn) {
+export class Home extends React.Component {
+    render() {
+    if (this.props.loggedIn) {
         return <Redirect to="/dashboard" />;
     }
 
@@ -21,4 +24,11 @@ export default function Home(props) {
             <p className="tagline">An app to keep track of all your subscriptions.</p>
         </div>
     )
+    }
 }
+
+const matchStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null    
+})
+
+export default connect(matchStateToProps)(Home);
