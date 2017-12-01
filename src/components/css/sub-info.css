@@ -1,0 +1,33 @@
+.sub-info {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.ul-container {
+    text-align: left;
+}
+
+.sub-name-header {
+    font-size: 32px;
+}
+
+.sub-list {
+    margin-left: 70px;
+    font-size: 24px;
+    list-style: none;
+}
+
+.sub-list > li {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.sub-info-container > .x-out {
+    position: absolute;
+    right: 35%;
+    top: 188px;
+}
+
+.icon {
+    margin-right: 30px;
+}

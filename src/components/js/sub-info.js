@@ -20,13 +20,34 @@ export class SubInfo extends React.Component {
         if (!this.props.loggedIn) {
             return <Redirect to="/login" />
         };
-
+        
         const subscriptions = this.props.subscriptions;
         const idNumber = this.props.match.params.sub;
         const sub = subscriptions.find(sub => sub.id === Number(idNumber));
-        let status;
-        sub.active === true ? status = 'Active Status' : status = 'Not Active';
+        
+        const categoryIcons = ['🎵', '🎭', '🏖', '💼', '🎁']
+        let iconIndex = null;        
+        
+        switch (sub.category) {
+            case 'music':
+                iconIndex = categoryIcons[0];
+                break;
+            case 'entertainment':
+                iconIndex = categoryIcons[1];
+                break;
+            case 'lifestyle':
+                iconIndex = categoryIcons[2];
+                break;
+            case 'work':
+                iconIndex = categoryIcons[3];
+                break;
+            case 'other':
+                iconIndex = categoryIcons[4];
+                break;
+        }
 
+        let status;
+        sub.active === true ? status = 'Active' : status = 'Not Active';
         const subDate = new Date(sub.due_date).toISOString().slice(0,10);
 
         return (
@@ -38,19 +59,21 @@ export class SubInfo extends React.Component {
                 <div className="sub-info">
                     <div className="loading-container">{this.props.loading ? <span className="loading">Loading . . .</span> :
                         <div className="h3-ul-container">
-                            <h3>{sub.subscription_name}</h3>
-                            <ul>
-                                <li><span className="icon">♫</span> {sub.category}</li>
-                                <li><span className="icon">$</span> {sub.price}/{sub.frequency}</li>
-                                <li><span className="icon">*</span> {sub.cc_type} {sub.cc_digits} {sub.cc_nickname}</li>
-                                <li><span className="icon">*</span> Subscribed on: {subDate} </li>
-                                <li><span className="icon">*</span>
-                                    {status}
-                                </li>
-                            </ul>
+                            <h3 className="sub-name-header">{sub.subscription_name}</h3>
+                            <div className="ul-container">
+                                <ul className="sub-list">
+                                    <li><span className="icon">{iconIndex}</span> {sub.category}</li>
+                                    <li><span className="icon">💲</span> ${sub.price}/{sub.frequency}</li>
+                                    <li><span className="icon">💳</span> {sub.cc_type} {sub.cc_digits} ({sub.cc_nickname})</li>
+                                    <li><span className="icon">🗓</span> Subscribed on: {subDate} </li>
+                                    <li><span className="icon">☑️</span>
+                                        {status}
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    }
-                    </div>           
+                        }         
+                    </div>
                 </div>
 
                 <Link to={`/subscription/edit/${idNumber}`}>
