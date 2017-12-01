@@ -1,3 +1,4 @@
+
 .edit-sub {
   position:relative;
   vertical-align: middle;
@@ -17,4 +18,43 @@
   .edit-sub:hover{
     color: #FFF;
     background-color: #dda534
+
+.sub-edit {
+    text-align: left;
+}
+
+.sub-edit > input {
+    position: relative;
+    left: 80px;
+    top: -22px;
+    width: 150px;
+}
+
+.sub-edit > select {
+    position: relative;
+    left: 80px;
+    top: -22px;
+    width: 150px;
+}
+
+
+.sub-edit-container > .x-out {
+    position: absolute;
+    right: 35%;
+    top: 188px;
+}
+
+#subscriptionName {
+    position: static;
+    height: 40px;
+    font-size: 32px;
+    width: 280px;
+}
+
+#price {
+    width: 80px;
+}
+
+.sub-frequency-field {
+    width: 150px;
 }

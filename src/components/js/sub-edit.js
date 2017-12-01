@@ -68,73 +68,80 @@ export class SubEdit extends React.Component {
             type="text" 
             name="subscriptionName" 
             placeholder="Subscription Name"
+            className="sub-name-field"
           />
-          
-          <span className="icon">♫</span> 
-          <label htmlFor="sub-category"></label>
-          <Field name="category" component="select">
+          <hr></hr>
+          <span className="icon"></span> 
+          <label htmlFor="sub-category">Category *</label>
+          <Field name="category" component="select" className="sub-category-field">
             <option value="music">Music</option>
             <option value="entertainment">Entertainment</option>
             <option value="work">Work</option>
             <option value="lifestyle">Lifestyle</option>
             <option value="other">Other</option>
           </Field>
-          
-          <span className="icon">$</span>
-          <label htmlFor="sub-price"></label>
+          <hr></hr>
+          <span className="icon"></span>
+          <label htmlFor="sub-price">Price *</label>
           <Field
             type="number" 
             step="0.01" 
             component={Input}
             name="price" 
-            placeholder="price" />
+            placeholder="price"
+            className="sub-price-field" />
           
-          <span className="divider"> / </span>
+          <span className="divider"></span>
           
           <label htmlFor="subfrequency"></label>
-          <Field name="frequency" id="subfrequency" component="select">
+          <Field name="frequency" id="subfrequency" component="select" className="sub-price-frequency">
             <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
             <option value="monthly">Monthly</option>
             <option value="annually">Annually</option>
           </Field>
-       
-          <span className="icon">*</span>
-          <label htmlFor="sub-payment-type"></label>
+          <hr></hr>
+          <span className="icon"></span>
+          <label htmlFor="sub-payment-type">Card</label>
           <Field 
             component={Input} 
             name="ccType" 
-            placeholder="Payment: Method" />
-          <label htmlFor="sub-poayment-digits"></label>
+            placeholder="Payment: Method"
+            className="sub-payment-method-field" />
+          <label htmlFor="sub-payment-digits"></label>
           <Field
             type="number"
             component={Input}
             name="ccDigits" 
-            placeholder="Payment: Last 4 Digits" />
-          <label htmlFor="sub-poayment-nickname"></label>
+            placeholder="Payment: Last 4 Digits"
+            className="sub-payment-digits-field" />
+          <label htmlFor="sub-payment-nickname"></label>
           <Field
             component={Input} 
             name="ccNickname" 
-            placeholder="Payment: Nickname" />
-
-          <span className="icon">*</span>
+            placeholder="Payment: Nickname"
+            className="sub-payment-nickname-field" />
+          <hr></hr>
+          <span className="icon">Date *</span>
           <label htmlFor="sub-payment-date"></label>
           <Field 
             name="paymentDate"
             component={Input}
-            type="date"/>
-          
+            type="date"
+            className="sub-payment-date-field"/>
+          <hr></hr>
+          <label htmlFor="subcheckbox">Active? *</label>
           <Field 
             component={Input}
             type="checkbox"
             name="active" 
             type="checkbox"
-            id="subcheckbox" 
+            id="subcheckbox"
+            className="sub-checkbox-field" 
             defaultChecked />
-          <label htmlFor="subcheckbox">Active?</label>
 
           <button className="edit-sub" disabled={this.props.pristine || this.props.submitting}>
-              SAVE
+              Save
           </button>  
 
         </form>
