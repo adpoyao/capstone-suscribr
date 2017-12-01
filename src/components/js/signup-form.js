@@ -77,7 +77,7 @@ export class SignupForm extends React.Component {
                     
                     <label htmlFor="confirm-password"></label>
                     <Field
-                        component={}
+                        component={Input}
                         type="password"
                         name="confirm-password"
                         id="confirm-password"
