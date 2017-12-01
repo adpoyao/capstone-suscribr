@@ -2,7 +2,7 @@
     text-align: left;
 }
 
-input, select {
+.sub-edit-container > input, select {
     position: relative;
     left: 80px;
     top: -22px;
