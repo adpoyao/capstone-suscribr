@@ -54,9 +54,10 @@ export class SubInfo extends React.Component {
             <div className="sub-info-container">
                 <Logout />
                 <NavBar />
-                <Link to={`/dashboard`} className="x-out">✕</Link>
           
                 <div className="sub-info">
+                <Link to={`/dashboard`} className="x-out">↩</Link>
+
                     <div className="loading-container">{this.props.loading ? <span className="loading">Loading . . .</span> :
                         <div className="h3-ul-container">
                             <h3 className="sub-name-header">{sub.subscription_name}</h3>

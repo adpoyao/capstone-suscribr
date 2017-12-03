@@ -71,7 +71,10 @@ a {
   .x-out2 {
     color: #C83137;
     font-size: 1.5em;
-    transition: all 0.3s ease;       
+    display: flex;
+    justify-content: flex-end;
+    transition: all 0.3s ease;
+    margin: 0;       
   }
   
   .x-out:hover,

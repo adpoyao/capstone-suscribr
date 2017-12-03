@@ -30,10 +30,12 @@ export class SubEdit extends React.Component {
       active: values.active,
       userId: this.props.userId
     }
-    console.log("===editedSub", editedSub);
     this.props.dispatch(editSub(editedSub, this.props.match.params.sub))
     .then(()=> this.props.history.push(`/subscription/show/${this.props.match.params.sub}`))  
   }
+  
+  idNumber = this.props.match.params.sub;
+  
 
   render() {
     if (!this.props.loggedIn) {
@@ -53,7 +55,6 @@ export class SubEdit extends React.Component {
       <div className="sub-edit-container">
         <Logout />
         <NavBar />
-        <Link to={`/dashboard`} className="x-out">✕</Link>
         <form
           className="sub-edit"
           onSubmit={this.props.handleSubmit(values =>
@@ -61,7 +62,7 @@ export class SubEdit extends React.Component {
          )}>
         
         {error}
-
+        <Link to={`/subscription/show/${this.idNumber}`} className="x-out">↩</Link>
         <label className="label" htmlFor="sub-name">Subscription Name</label>
         <Field
             component={Input}

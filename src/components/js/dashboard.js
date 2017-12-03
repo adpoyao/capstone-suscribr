@@ -12,10 +12,13 @@ import '../css/dashboard.css';
 import { fetchAllSubscriptions } from '../../actions/actions';
 
 export class Dashboard extends React.Component {
+    //TODO: Debug dashboard
     componentDidMount() {
-        if (!this.props.loggedIn) {
-            return;
-        }
+        // if (!this.props.loggedIn) {
+        //     return;
+        // }
+
+        //TODO: On refresh, fetchAllSubscriptions dispatches FIRST before refreshAuthToken gets ran.
         this.props.dispatch(fetchAllSubscriptions(this.props.userId))
     }
 
@@ -24,14 +27,20 @@ export class Dashboard extends React.Component {
             return <span className="loading">Loading . . .</span>
         };
 
+        let daily = [];
+        let weekly = [];
         let monthly = [];
         let yearly = [];
         if (this.props.subscriptions) {
+            daily = this.props.subscriptions.filter(sub => sub.frequency === 'daily')
+            weekly = this.props.subscriptions.filter(sub => sub.frequency === 'weekly')
             monthly = this.props.subscriptions.filter(sub => sub.frequency === 'monthly')
             yearly = this.props.subscriptions.filter(sub => sub.frequency === 'annually')
         }
-        let subs = monthly.length + yearly.length;
+        let subs = daily.length + weekly.length + monthly.length + yearly.length;
 
+        let dailyCost = 0;
+        let weeklyCost = 0;
         let monthlyCost = 0;
         let yearlyCost = 0;
         let annualCost = 0;

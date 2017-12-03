@@ -44,7 +44,8 @@
 }
 
 .x-out {
-    position: absolute;
-    top: 230px;
-    right: 190px;
+    position: flex;
+    justify-content: flex-end;
+    font-size: 2em;
+    margin: 0
 }
