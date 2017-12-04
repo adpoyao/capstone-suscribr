@@ -122,14 +122,15 @@ export class SubAdd extends React.Component {
             component={Input}
             type="date"/>
           
+          <label htmlFor="subcheckbox">Active Subscription? *</label>
           <Field 
             component={Input}
             type="checkbox"
             name="active" 
             type="checkbox"
-            id="subcheckbox" 
+            id="subcheckbox"
+            className="sub-checkbox-field" 
             defaultChecked />
-          <label htmlFor="subcheckbox">Active Subscription? *</label>
 
           <button className="add-button" disabled={this.props.pristine || this.props.submitting}>
               Add
