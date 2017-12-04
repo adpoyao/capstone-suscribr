@@ -56,11 +56,11 @@ export class SubInfo extends React.Component {
                 <NavBar />
           
                 <div className="sub-info">
+                <h3 className="sub-name-header">{sub.subscription_name}</h3>
                 <Link to={`/dashboard`} className="x-out">↩</Link>
 
                     <div className="loading-container">{this.props.loading ? <span className="loading">Loading . . .</span> :
                         <div className="h3-ul-container">
-                            <h3 className="sub-name-header">{sub.subscription_name}</h3>
                             <div className="ul-container">
                                 <ul className="sub-list">
                                     <li><span className="icon">{iconIndex}</span> {sub.category}</li>

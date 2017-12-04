@@ -60,7 +60,7 @@ export class SubEdit extends React.Component {
           onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values)
          )}>
-        
+        <h3>Edit Subscription</h3>
         {error}
         <Link to={`/subscription/show/${this.idNumber}`} className="x-out">↩</Link>
         <label className="label" htmlFor="sub-name">Subscription Name</label>
@@ -131,7 +131,7 @@ export class SubEdit extends React.Component {
             type="date"
             className="sub-payment-date-field"/>
           {/* <hr></hr> */}
-          <label htmlFor="subcheckbox">Active? *</label>
+          <label htmlFor="subcheckbox">Active Subscription? *</label>
           <Field 
             component={Input}
             type="checkbox"

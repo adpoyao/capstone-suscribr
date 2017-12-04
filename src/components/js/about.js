@@ -29,7 +29,6 @@ export default class About extends React.Component {
                 [key]: 'hide'
             })
         }
-        console.log(this.state);
     }
 
         render() {

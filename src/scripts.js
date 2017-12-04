@@ -1,5 +1,3 @@
-console.log(monthlyCost);
-
 let monthly = [];
 let yearly = [];
 if (this.props.subscriptions) {

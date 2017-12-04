@@ -27,7 +27,6 @@ export class SubAdd extends React.Component {
       active: values.active,
       userId: this.props.userId
     }
-    console.log('===newSubscription', newSubscription);
     this.props.dispatch(addSub(newSubscription))
     .then(()=> this.props.history.push('/dashboard'))  
   }
@@ -50,16 +49,18 @@ export class SubAdd extends React.Component {
       <div className="sub-add-container">
         <Logout />
         <NavBar />
-        <Link to={`/dashboard`} className="x-out">✕</Link>
         <form
           className="sub-form"
           onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values)
           )}>
-          
+
+          <h3>Add Subscription</h3>
+          <Link to={`/dashboard`} className="x-out">↩</Link>
+
           {error}
 
-          <label htmlFor="sub-name"></label>
+          <label htmlFor="sub-name">Subscription Name</label>
           <Field
             component={Input}
             type="text" 
@@ -68,8 +69,8 @@ export class SubAdd extends React.Component {
           />
           
           <span className="icon"></span> 
-          <label htmlFor="sub-category"></label>
-          <Field name="category" component="select">
+          <label htmlFor="sub-category">Category *</label>
+          <Field name="category" component="select" className="select">
             <option value="music">Music</option>
             <option value="entertainment">Entertainment</option>
             <option value="work">Work</option>
@@ -78,7 +79,7 @@ export class SubAdd extends React.Component {
           </Field>
           
           <span className="icon"></span>
-          <label htmlFor="sub-price"></label>
+          <label htmlFor="sub-price">Price *</label>
           <Field
             type="number" 
             step="0.01" 
@@ -89,7 +90,7 @@ export class SubAdd extends React.Component {
           <span className="divider"></span>
           
           <label htmlFor="subfrequency"></label>
-          <Field name="frequency" id="subfrequency" component="select">
+          <Field name="frequency" id="subfrequency" component="select" className="select">
             <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
             <option value="monthly">Monthly</option>
@@ -97,7 +98,7 @@ export class SubAdd extends React.Component {
           </Field>
        
           <span className="icon"></span>
-          <label htmlFor="sub-payment-type"></label>
+          <label htmlFor="sub-payment-type">Card</label>
           <Field 
             component={Input} 
             name="ccType" 
@@ -128,7 +129,7 @@ export class SubAdd extends React.Component {
             type="checkbox"
             id="subcheckbox" 
             defaultChecked />
-          <label htmlFor="subcheckbox">Active?</label>
+          <label htmlFor="subcheckbox">Active Subscription? *</label>
 
           <button className="add-button" disabled={this.props.pristine || this.props.submitting}>
               Add

@@ -68,9 +68,6 @@ export class Summary extends React.Component {
       
       totalSum = Math.round((roughSum)*100)/100
 
-      console.log(categorizedSubs);
-      console.log(totalSum);
-
       const populatedSubLists = categorizedSubs.filter(sub => sub.subList.length > 0);
       const contentMap = populatedSubLists.map((each, index) => 
         <div className='category-container'>  
@@ -93,8 +90,9 @@ export class Summary extends React.Component {
       <div>
         <Logout />
         <NavBar />
-        <Link to={`/dashboard`} className="x-out">✕</Link>
         <div className="summary-container">
+        <Link to={`/dashboard`} className="x-out">↩</Link>
+
           <h3 className="summary-breakdown">Monthly Breakdown</h3>
           <div className="summary-contents">
             <ul>

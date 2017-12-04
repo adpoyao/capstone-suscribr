@@ -79,7 +79,7 @@ export class Dashboard extends React.Component {
                                 <Circle
                                     className='circle-3' 
                                     numberValue={"$" + annualCost}
-                                    textValue="Yearly Total"/>
+                                    textValue="Yearly Total »"/>
                             </Link>
                         </div>
                         <Link to={`/subscription/add`}><div className="add-new"><span>+New Subscription</span></div></Link>
