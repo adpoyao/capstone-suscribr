@@ -12,6 +12,12 @@ export class LoginForm extends React.Component {
         return this.props.dispatch(login(values.username, values.password));
     }
 
+    onDemoSubmit = () => {
+        return this.props.dispatch(login('demo_account', 'password'));
+    }
+
+    // onDemoSumbit(values)
+
     render() {
         let error;
         if (this.props.error) {
@@ -53,7 +59,8 @@ export class LoginForm extends React.Component {
                     />
                     <button className="log-in" disabled={this.props.pristine || this.props.submitting}>
                         Log in
-                    </button>                
+                    </button>
+                    <button className="demo-log-in" onClick={()=>this.onDemoSubmit()}>Demo</button>               
                 </fieldset>
             </form>
             <p>Don't have an account yet? Sign up <Link to={'/signup'}><span className="signup-here">here</span></Link>.</p>

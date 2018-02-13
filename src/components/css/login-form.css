@@ -7,7 +7,8 @@ fieldset > button {
     margin-bottom: 15px;
   }
 
-.log-in {
+.log-in,
+.demo-log-in {
 position:relative;
 vertical-align: middle;
 color: #ffffff;
@@ -26,4 +27,8 @@ width: 305px;
 .log-in:hover {
     color: #FFF;
     background-color: #dda534
+}
+
+.demo-log-in {
+    margin: 0
 }
